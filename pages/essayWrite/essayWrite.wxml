@@ -1,0 +1,24 @@
+<view class="container">
+  <view class="form-card">
+    <!-- 当前书籍（从书籍详情页带入，固定展示） -->
+    <view class="form-label">当前书籍</view>
+    <view class="picker-value">{{bookTitle}}</view>
+
+    <!-- 随笔类型 -->
+    <view class="form-label">随笔类型</view>
+    <view class="type-row">
+      <view class="type-option {{type === 'reading' ? 'active' : ''}}" data-type="reading" bindtap="onTypeChange">读后感</view>
+      <view class="type-option {{type === 'review' ? 'active' : ''}}" data-type="review" bindtap="onTypeChange">书评</view>
+    </view>
+
+    <!-- 标题 -->
+    <view class="form-label">标题</view>
+    <input class="form-input" placeholder="给随笔起个标题" value="{{title}}" bindinput="onTitleInput" />
+
+    <!-- 内容 -->
+    <view class="form-label">内容</view>
+    <textarea class="form-textarea" placeholder="写下你的读后感或书评，鼓励结合文本思辨交流..." value="{{content}}" bindinput="onContentInput"></textarea>
+
+    <button class="btn submit-btn" bindtap="submit">发布随笔</button>
+  </view>
+</view>

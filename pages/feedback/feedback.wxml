@@ -1,0 +1,8 @@
+<view class="container">
+  <view class="form-card">
+    <view class="form-label">📝 反馈内容</view>
+    <textarea class="form-textarea" placeholder="写下你对活动、书单或功能的想法和建议..." value="{{content}}" bindinput="onContentInput"></textarea>
+    <view class="form-tip">我们会认真阅读每一条反馈，感谢你的参与！</view>
+    <button class="btn submit-btn" bindtap="submit">提交反馈</button>
+  </view>
+</view>

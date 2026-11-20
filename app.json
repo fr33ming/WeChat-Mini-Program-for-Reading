@@ -2,8 +2,12 @@
   "pages": [
     "pages/books/books",
     "pages/bookDetail/bookDetail",
+    "pages/essays/essays",
+    "pages/essayWrite/essayWrite",
+    "pages/essayDetail/essayDetail",
     "pages/fun/fun",
-    "pages/readingTest/readingTest",
+    "pages/feedback/feedback",
+    "pages/records/records",
     "pages/cases/cases",
     "pages/mine/mine",
     "pages/index/index",
@@ -16,23 +20,31 @@
   },
   "tabBar": {
     "color": "#999999",
-    "selectedColor": "#00B894",
+    "selectedColor": "#B8860B",
     "list":[
       {
         "pagePath": "pages/books/books",
-        "text":"墨趣同栖"
+        "text":"墨趣同栖",
+        "iconPath": "images/tabBar/books_.png",
+        "selectedIconPath": "images/tabBar/books.png"
       },
       {
         "pagePath": "pages/fun/fun",
-        "text":"观文小试"
+        "text":"观文小试",
+        "iconPath": "images/tabBar/fun_.png",
+        "selectedIconPath": "images/tabBar/fun.png"
       },
       {
         "pagePath": "pages/cases/cases",
-        "text":"阅读札记"
+        "text":"阅读札记",
+        "iconPath": "images/tabBar/cases_.png",
+        "selectedIconPath": "images/tabBar/cases.png"
       },
       {
         "pagePath": "pages/mine/mine",
-        "text":"书影自留"
+        "text":"书影自留",
+        "iconPath": "images/tabBar/mine_.png",
+        "selectedIconPath": "images/tabBar/mine.png"
       }
     ]
   },

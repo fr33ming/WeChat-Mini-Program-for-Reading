@@ -1,0 +1,25 @@
+<!-- 随笔广场 -->
+<view class="essay-section">
+  <view class="essay-header">
+    <view class="essay-title">✍️ 随笔广场</view>
+    <view class="essay-sub">写读后感、发书评，一起思辨交流</view>
+  </view>
+  <view wx:if="{{essays.length === 0}}" class="empty-state">
+    <view class="empty-icon">✍️</view>
+    <view>还没有随笔，来写第一篇吧！</view>
+  </view>
+  <view class="essay-card" wx:for="{{essays}}" wx:key="_id" bindtap="goToEssay" data-id="{{item._id}}">
+    <view class="essay-top">
+      <text class="essay-type {{item.type}}">{{item.typeName}}</text>
+      <text class="essay-card-title">{{item.title}}</text>
+    </view>
+    <view class="essay-book">《{{item.bookTitle}}》</view>
+    <view class="essay-content">{{item.content}}</view>
+    <view class="essay-meta">
+      <text class="essay-user">{{item.userName}}</text>
+      <text class="essay-time">{{item.time}}</text>
+      <text class="essay-stat">♥ {{item.likeCount}}</text>
+      <text class="essay-stat">💬 {{item.commentCount}}</text>
+    </view>
+  </view>
+</view>

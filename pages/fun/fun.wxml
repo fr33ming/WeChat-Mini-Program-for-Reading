@@ -10,16 +10,22 @@
       </view>
     </view>
 
+    <view class="fun-card" bindtap="goToEssay">
+      <text class="fun-icon">🎲</text>
+      <text class="fun-name">随笔广场</text>
+      <text class="fun-desc">看看大家写了什么</text>
+    </view>
+
     <view class="fun-card" bindtap="comingSoon">
-      <text class="fun-icon">📝</text>
-      <text class="fun-name">读书笔记</text>
-      <text class="fun-desc">记录心得</text>
+      <text class="fun-icon">📺</text>
+      <text class="fun-name">AI微课</text>
+      <text class="fun-desc">数字资源等着你</text>
     </view>
     
-    <view class="fun-card" bindtap="comingSoon">
-      <text class="fun-icon">🎲</text>
-      <text class="fun-name">随机推荐</text>
-      <text class="fun-desc">一本好书</text>
+    <view class="fun-card" bindtap="goToFeedback">
+      <text class="fun-icon">📝</text>
+      <text class="fun-name">活动反馈</text>
+      <text class="fun-desc">期待你的意见</text>
     </view>
 
   </view>

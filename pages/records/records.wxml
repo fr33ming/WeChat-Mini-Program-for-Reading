@@ -1,0 +1,85 @@
+<view class="container">
+
+  <!-- 标签页 -->
+  <view class="tab-row">
+    <view class="mine-tab {{activeTab === 'read' ? 'active' : ''}}" bindtap="switchTab" data-tab="read">📖 已读</view>
+    <view class="mine-tab {{activeTab === 'essay' ? 'active' : ''}}" bindtap="switchTab" data-tab="essay">✍️ 随笔</view>
+    <view class="mine-tab {{activeTab === 'fav' ? 'active' : ''}}" bindtap="switchTab" data-tab="fav">☆ 收藏</view>
+    <view class="mine-tab {{activeTab === 'like' ? 'active' : ''}}" bindtap="switchTab" data-tab="like">♥ 喜欢</view>
+  </view>
+
+  <!-- 已读书籍列表 -->
+  <view wx:if="{{activeTab === 'read'}}">
+    <view wx:if="{{readBooks.length === 0}}" class="empty-state">
+      <view class="empty-icon">📭</view>
+      <view>还没有已读书籍，去书籍推荐看看吧！</view>
+    </view>
+    <view class="read-item" wx:for="{{readBooks}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+      <view class="book-cover" style="background: {{item.coverColor}}">{{item.cover}}</view>
+      <view class="info">
+        <view class="title">{{item.title}}</view>
+        <view class="subtitle">{{item.author}} · {{item.category}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 我的随笔列表 -->
+  <view wx:if="{{activeTab === 'essay'}}">
+    <view wx:if="{{myEssays.length === 0}}" class="empty-state">
+      <view class="empty-icon">✍️</view>
+      <view>还没有写过随笔，去「墨趣同栖」写一篇吧！</view>
+    </view>
+    <view class="essay-item" wx:for="{{myEssays}}" wx:key="_id" bindtap="goToEssay" data-id="{{item._id}}">
+      <view class="essay-header">
+        <text class="essay-type {{item.type}}">{{item.typeName}}</text>
+        <text class="essay-title">{{item.title}}</text>
+      </view>
+      <view class="essay-book">📖 《{{item.bookTitle}}》</view>
+      <view class="review-time">{{item.time}}</view>
+    </view>
+  </view>
+
+  <!-- 我的收藏列表 -->
+  <view wx:if="{{activeTab === 'fav'}}">
+    <!-- 类型筛选：随笔/资讯（资讯为tab3预留） -->
+    <view class="type-filter">
+      <view class="type-filter-btn {{favFilter === 'essay' ? 'active' : ''}}" data-filter="essay" bindtap="onFavFilter">✍️ 随笔</view>
+      <view class="type-filter-btn {{favFilter === 'article' ? 'active' : ''}}" data-filter="article" bindtap="onFavFilter">📰 资讯</view>
+    </view>
+    <view wx:if="{{favShow.length === 0}}" class="empty-state">
+      <view class="empty-icon">☆</view>
+      <view wx:if="{{favFilter === 'essay'}}">还没有收藏的随笔，去随笔详情页点收藏吧！</view>
+      <view wx:else>资讯板块即将上线，敬请期待</view>
+    </view>
+    <view class="essay-item" wx:for="{{favShow}}" wx:key="_id" bindtap="goToEssay" data-id="{{item._id}}">
+      <view class="essay-header">
+        <text class="essay-type {{item.type}}">{{item.typeName}}</text>
+        <text class="essay-title">{{item.title}}</text>
+      </view>
+      <view class="essay-book">📖 《{{item.bookTitle}}》</view>
+      <view class="review-time">{{item.time}}</view>
+    </view>
+  </view>
+
+  <!-- 我的喜欢列表 -->
+  <view wx:if="{{activeTab === 'like'}}">
+    <!-- 类型筛选：随笔/资讯（资讯为tab3预留） -->
+    <view class="type-filter">
+      <view class="type-filter-btn {{likeFilter === 'essay' ? 'active' : ''}}" data-filter="essay" bindtap="onLikeFilter">✍️ 随笔</view>
+      <view class="type-filter-btn {{likeFilter === 'article' ? 'active' : ''}}" data-filter="article" bindtap="onLikeFilter">📰 资讯</view>
+    </view>
+    <view wx:if="{{likeShow.length === 0}}" class="empty-state">
+      <view class="empty-icon">♥</view>
+      <view wx:if="{{likeFilter === 'essay'}}">还没有喜欢的随笔，去随笔详情页点个赞吧！</view>
+      <view wx:else>资讯板块即将上线，敬请期待</view>
+    </view>
+    <view class="essay-item" wx:for="{{likeShow}}" wx:key="_id" bindtap="goToEssay" data-id="{{item._id}}">
+      <view class="essay-header">
+        <text class="essay-type {{item.type}}">{{item.typeName}}</text>
+        <text class="essay-title">{{item.title}}</text>
+      </view>
+      <view class="essay-book">📖 《{{item.bookTitle}}》</view>
+      <view class="review-time">{{item.time}}</view>
+    </view>
+  </view>
+</view>

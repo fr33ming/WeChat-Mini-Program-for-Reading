@@ -19,7 +19,7 @@
 
 /* ====================== 普通功能卡片 ====================== */
 .fun-card {
-  background: #fff;
+  background: #FFFDF8;
   border-radius: 20rpx;
   padding: 30rpx 20rpx;
   text-align: center;
@@ -35,7 +35,7 @@
 .fun-card.featured {
   grid-column: span 2;        /* 网格占满2列宽度 */
   flex-direction: row;        /* 改为横向排列：图标+文字 */
-  background: #00B894;
+  background: #B8860B;        /* 纸黄棕主题色 */
   color: white;
   text-align: left;
   padding: 30rpx;

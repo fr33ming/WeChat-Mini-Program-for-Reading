@@ -9,7 +9,7 @@
   display: flex;                /* 横向布局：封面 + 书籍基础信息 */
   width: 100%;                  /* 固定宽度，与下方所有区块完全等宽 */
   box-sizing: border-box;       /* 内边距计入宽度，不撑大盒子 */
-  background: #fff;
+  background: #FFFDF8;
   border-radius: 24rpx;
   padding: 24rpx;
   margin-bottom: 24rpx;
@@ -37,7 +37,7 @@
 }
 .author {
   font-size: 24rpx;
-  color: #636E72;
+  color: #8A7A5C;
   margin: 8rpx 0;
 }
 .tags {
@@ -46,7 +46,7 @@
   gap: 8rpx;
 }
 .tag {
-  background: #F0F0F0;
+  background: #F0E6CE;
   border-radius: 20rpx;
   padding: 4rpx 16rpx;
   font-size: 22rpx;
@@ -61,21 +61,21 @@
   border-radius: 30rpx;
   font-size: 24rpx;
   font-weight: 600;
-  background: #E0F4EE;         /* 未读状态：浅青绿底 */
-  color: #00A37D;
-  border: 2rpx solid #00B894;
+  background: #F3E6C4;         /* 未读状态：米黄底 */
+  color: #96710A;
+  border: 2rpx solid #B8860B;
 }
 .read-toggle.is-read {
-  background: #00B894;         /* 已读状态：青绿实底 */
+  background: #B8860B;         /* 已读状态：纸黄棕实底 */
   color: #FFFFFF;
-  border-color: #00B894;
+  border-color: #B8860B;
 }
 
 /* ====================== 通用内容区块 ====================== */
 .section {
   width: 100%;                  /* 固定宽度，与头部卡片完全等宽 */
   box-sizing: border-box;       /* 内边距计入宽度，不撑大盒子 */
-  background: #fff;
+  background: #FFFDF8;
   border-radius: 24rpx;
   padding: 24rpx;
   margin-bottom: 24rpx;
@@ -88,86 +88,57 @@
 }
 .section-text {
   font-size: 28rpx;
-  color: #636E72;
+  color: #8A7A5C;
   line-height: 1.6;            /* 行高，提升大段文字可读性 */
 }
 
-/* ====================== 书籍信息网格 ====================== */
-.info-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* 两列等宽网格布局 */
-  gap: 12rpx;
-  font-size: 26rpx;
-  color: #636E72;
-}
-
-/* ====================== 评分星星组件 ====================== */
-.star-row {
+/* 本书随笔区块：标题与写随笔按钮同一行 */
+.essay-section-header {
   display: flex;
-  gap: 8rpx;
-  margin-bottom: 20rpx;
+  align-items: center;
+  justify-content: space-between; /* 标题靠左，按钮靠右 */
+  margin-bottom: 16rpx;
 }
-.star {
-  font-size: 48rpx;
-  color: #DDD;                  /* 未激活星星灰色 */
-}
-.star.active {
-  color: #FDCB6E;               /* 选中星星金黄色 */
+.essay-section-header .section-label {
+  margin-bottom: 0; /* 行内不再需要单独的下边距 */
 }
 
-/* ====================== 写评价输入区域 ====================== */
-.review-textarea {
-  width: 100%;
-  height: 160rpx;
-  border: 2rpx solid #E8E8E8;
-  border-radius: 12rpx;
-  padding: 16rpx;
-  font-size: 26rpx;
-  margin-bottom: 20rpx;
-  box-sizing: border-box;       /* padding不会撑开总宽度 */
-}
-.submit-row {
-  display: flex;
-  justify-content: center;      /* 提交评价按钮水平居中 */
-}
-
-/* ====================== 历史评价列表项 ====================== */
-.review-item {
+/* ====================== 本书随笔列表项 ====================== */
+.essay-item {
   padding: 20rpx 0;
-  border-bottom: 1rpx solid #F0F0F0; /* 分割线 */
+  border-bottom: 1rpx solid #F0E6CE; /* 分割线 */
 }
-.review-header {
+.essay-item:last-child {
+  border-bottom: none;
+}
+.essay-item-top {
   display: flex;
   align-items: center;
   gap: 12rpx;
 }
-.review-user {
-  width: 50rpx;
-  height: 50rpx;
-  border-radius: 50%;          /* 圆形头像 */
-  background: #00B894;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24rpx;
-  font-weight: bold;
+.essay-type {
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  font-weight: 600;
+  flex-shrink: 0;
 }
-.review-name {
-  font-size: 26rpx;
+.essay-type.reading {
+  background: #F3E6C4;
+  color: #96710A;
+}
+.essay-type.review {
+  background: #FDEBD0;
+  color: #C77B1E;
+}
+.essay-item-title {
+  font-size: 28rpx;
   font-weight: 600;
 }
-.review-stars {
-  margin-left: auto;            /* 推到最右侧 */
-  color: #FDCB6E;
-  font-size: 26rpx;
-}
-.review-content {
-  font-size: 26rpx;
-  color: #2D3436;
-  margin: 12rpx 0 8rpx;
-}
-.review-time {
+.essay-item-meta {
+  display: flex;
+  justify-content: space-between;
   font-size: 22rpx;
-  color: #B2BEC3;               /* 次要时间浅灰色 */
+  color: #B3A687;
+  margin-top: 10rpx;
 }

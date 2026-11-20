@@ -21,48 +21,32 @@
     <text class="section-text">{{book.description}}</text>
   </view>
 
-  <!-- 基本信息 -->
+  <!-- 专业导读 + 写随笔 -->
   <view class="section">
-    <view class="section-label">📋 基本信息</view>
-    <view class="info-grid">
-      <text>📕 书名：{{book.title}}</text>
-      <text>✍️ 作者：{{book.author}}</text>
-      <text>📂 分类：{{book.category}}</text>
-      <text>⭐ 评分：{{book.rating}}</text>
-    </view>
+    <view class="section-label">🎓 专业导读</view>
+    <text class="section-text">{{book.guide}}</text>
   </view>
 
-  <!-- 评价 -->
+  <!-- 本书随笔 -->
   <view class="section">
-    <view class="section-label">⭐ 评价</view>
-    <!-- 评分 -->
-    <view class="star-row">
-      <text wx:for="{{stars}}" wx:key="*this" 
-            class="star {{item <= selectedRating ? 'active' : ''}}" 
-            data-rating="{{item}}" bindtap="setRating">★</text>
+    <!-- 标题与写随笔按钮同一行：标题靠左，按钮靠右 -->
+    <view class="essay-section-header">
+      <view class="section-label">✍️ 本书随笔 ({{bookEssays.length}}篇)</view>
+      <button class="btn btn-sm" bindtap="goToWrite">✍️ 创作一条随笔！</button>
     </view>
-    <!-- 评价输入 -->
-    <textarea class="review-textarea" placeholder="分享你的阅读感受..." bindinput="onReviewInput" value="{{reviewContent}}"></textarea>
-    <view class="submit-row">
-      <button class="btn" bindtap="submitReview">提交评价</button>
+    <view wx:if="{{bookEssays.length === 0}}" class="empty-state">
+      <view class="empty-icon">✍️</view>
+      <view>还没有人写过这本书的随笔，来写第一篇吧</view>
     </view>
-  </view>
-
-  <!-- 评价列表 -->
-  <view class="section">
-    <view class="section-label">💬 评价列表 ({{reviews.length}}条)</view>
-    <view wx:if="{{reviews.length === 0}}" class="empty-state">
-      <view class="empty-icon">💬</view>
-      <view>暂无评价，快来第一个评价吧！</view>
-    </view>
-    <view class="review-item" wx:for="{{reviews}}" wx:key="index">
-      <view class="review-header">
-        <text class="review-user">{{item.isUser ? '我' : '读'}}</text>
-        <text class="review-name">{{item.userName || '匿名读者'}}</text>
-        <text class="review-stars">{{item.stars}}</text>
+    <view class="essay-item" wx:for="{{bookEssays}}" wx:key="_id" bindtap="goToEssay" data-id="{{item._id}}">
+      <view class="essay-item-top">
+        <text class="essay-type {{item.type}}">{{item.typeName}}</text>
+        <text class="essay-item-title">{{item.title}}</text>
       </view>
-      <view class="review-content">{{item.content}}</view>
-      <view class="review-time">{{item.time}}</view>
+      <view class="essay-item-meta">
+        <text>{{item.userName}}</text>
+        <text>{{item.time}}</text>
+      </view>
     </view>
   </view>
 </view>

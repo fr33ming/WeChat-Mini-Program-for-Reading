@@ -1,0 +1,44 @@
+/* ====================== 页面容器 ====================== */
+.container {
+  padding: 24rpx;
+}
+
+/* ====================== 表单卡片 ====================== */
+.form-card {
+  background: #FFFDF8;
+  border-radius: 24rpx;
+  padding: 32rpx 24rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.05);
+}
+.form-label {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #4A3B22;
+  margin-bottom: 16rpx;
+}
+.form-textarea {
+  width: 100%;
+  height: 300rpx;
+  background: #F8F1E1;
+  border: 2rpx solid #E7D9B8;
+  border-radius: 12rpx;
+  padding: 20rpx;
+  font-size: 26rpx;
+  box-sizing: border-box;       /* padding不会撑开总宽度 */
+}
+.form-tip {
+  font-size: 22rpx;
+  color: #B3A687;
+  margin: 16rpx 0 24rpx;
+}
+.submit-btn {
+  width: 100%;
+  background: #B8860B;
+  color: white;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.submit-btn:active {
+  background: #96710A;
+}
