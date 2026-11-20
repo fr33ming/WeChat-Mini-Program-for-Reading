@@ -1,0 +1,32 @@
+<view class="container">
+  <!-- 首页海报 -->
+  <image class="poster" src="/images/poster.png" mode="widthFix" />
+
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <input class="search-input" placeholder="搜索书名、作者..." bindinput="onSearchInput" value="{{searchTerm}}" />
+    <view class="filter-btn" bindtap="toggleFilter">筛选</view>
+  </view>
+
+  <!-- 书籍列表 -->
+  <view wx:if="{{filteredBooks.length === 0}}" class="empty-state">
+    <view class="empty-icon">📚</view>
+    <view>没有找到相关书籍</view>
+  </view>
+  <view class="book-list">
+    <view class="book-card" wx:for="{{filteredBooks}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+      <view class="book-cover" style="background: {{item.coverColor}}">{{item.cover}}</view>
+      <view class="book-info">
+        <view class="book-title">{{item.title}}</view>
+        <view class="book-author">{{item.author}}</view>
+        <view class="book-desc">{{item.description}}</view>
+        <view class="book-meta">
+          <text class="book-rating">⭐ {{item.rating}}</text>
+          <text class="badge badge-primary">{{item.category}}</text>
+          <text wx:if="{{item.isRead}}" class="badge badge-success">✓ 已读</text>
+          <text wx:if="{{item.reviewCount > 0}}" class="badge badge-warning">💬 {{item.reviewCount}}条评价</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

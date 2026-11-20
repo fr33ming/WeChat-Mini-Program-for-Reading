@@ -1,0 +1,68 @@
+<view class="container">
+  <!-- 头部 -->
+  <view class="hero">
+    <view class="cover" style="background: {{book.coverColor}}">{{book.cover}}</view>
+    <view class="info">
+      <view class="title">{{book.title}}</view>
+      <view class="author">{{book.author}}</view>
+      <view class="tags">
+        <text class="tag" wx:for="{{book.tags}}" wx:key="*this">{{item}}</text>
+      </view>
+    </view>
+    <!-- 右上角已读切换小按钮 -->
+    <view class="read-toggle {{isRead ? 'is-read' : ''}}" bindtap="toggleRead">
+      {{isRead ? '✓ 已读' : '未读'}}
+    </view>
+  </view>
+
+  <!-- 内容简介 -->
+  <view class="section">
+    <view class="section-label">📖 内容简介</view>
+    <text class="section-text">{{book.description}}</text>
+  </view>
+
+  <!-- 基本信息 -->
+  <view class="section">
+    <view class="section-label">📋 基本信息</view>
+    <view class="info-grid">
+      <text>📕 书名：{{book.title}}</text>
+      <text>✍️ 作者：{{book.author}}</text>
+      <text>📂 分类：{{book.category}}</text>
+      <text>⭐ 评分：{{book.rating}}</text>
+    </view>
+  </view>
+
+  <!-- 评价 -->
+  <view class="section">
+    <view class="section-label">⭐ 评价</view>
+    <!-- 评分 -->
+    <view class="star-row">
+      <text wx:for="{{stars}}" wx:key="*this" 
+            class="star {{item <= selectedRating ? 'active' : ''}}" 
+            data-rating="{{item}}" bindtap="setRating">★</text>
+    </view>
+    <!-- 评价输入 -->
+    <textarea class="review-textarea" placeholder="分享你的阅读感受..." bindinput="onReviewInput" value="{{reviewContent}}"></textarea>
+    <view class="submit-row">
+      <button class="btn" bindtap="submitReview">提交评价</button>
+    </view>
+  </view>
+
+  <!-- 评价列表 -->
+  <view class="section">
+    <view class="section-label">💬 评价列表 ({{reviews.length}}条)</view>
+    <view wx:if="{{reviews.length === 0}}" class="empty-state">
+      <view class="empty-icon">💬</view>
+      <view>暂无评价，快来第一个评价吧！</view>
+    </view>
+    <view class="review-item" wx:for="{{reviews}}" wx:key="index">
+      <view class="review-header">
+        <text class="review-user">{{item.isUser ? '我' : '读'}}</text>
+        <text class="review-name">{{item.userName || '匿名读者'}}</text>
+        <text class="review-stars">{{item.stars}}</text>
+      </view>
+      <view class="review-content">{{item.content}}</view>
+      <view class="review-time">{{item.time}}</view>
+    </view>
+  </view>
+</view>

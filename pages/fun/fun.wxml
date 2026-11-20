@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="section-title">🎯 发现有趣的功能</view>
+  <view class="fun-grid">
+  
+    <view class="fun-card featured" bindtap="comingSoon">
+      <text class="fun-icon">📖</text>
+      <view class="fun-info">
+        <text class="fun-name">阅读测试</text>
+        <text class="fun-desc">测试你的阅读水平，看看你是哪种阅读达人！</text>
+      </view>
+    </view>
+
+    <view class="fun-card" bindtap="comingSoon">
+      <text class="fun-icon">📝</text>
+      <text class="fun-name">读书笔记</text>
+      <text class="fun-desc">记录心得</text>
+    </view>
+    
+    <view class="fun-card" bindtap="comingSoon">
+      <text class="fun-icon">🎲</text>
+      <text class="fun-name">随机推荐</text>
+      <text class="fun-desc">一本好书</text>
+    </view>
+
+  </view>
+</view>

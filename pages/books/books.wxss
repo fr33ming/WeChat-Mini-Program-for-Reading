@@ -1,0 +1,121 @@
+/* ====================== 页面底部容器 ====================== */
+.container {
+  padding-bottom: 20rpx; /* 页面底部留白，避免内容贴住屏幕底边 */
+}
+
+/* ====================== 顶部海报 ====================== */
+.poster {
+  display: block;
+  width: 100%;              /* 海报通栏展示，高度按原图比例自适应 */
+}
+
+/* ====================== 顶部吸附搜索栏 ====================== */
+.search-bar {
+  display: flex;            /* 弹性横向布局，并排排列输入框+筛选按钮 */
+  align-items: center;      /* 内部元素垂直居中 */
+  padding: 20rpx 24rpx;     /* 内边距：上下20、左右24 */
+  background: #fff;
+  position: sticky;         /* 粘性定位：页面滚动时自动吸附在顶部 */
+  top: 0;                   /* 吸附位置：距离顶部0px */
+  z-index: 10;              /* 提高层级，确保滚动时不被其他内容盖住 */
+}
+
+/* 搜索输入框 */
+.search-input {
+  flex: 1;                  /* 占满剩余宽度，自动适配屏幕 */
+  height: 72rpx;
+  border-radius: 36rpx;     /* 圆角为高度的一半，形成胶囊形状 */
+  background: #F0F0F0;      /* 浅灰输入框底色 */
+  padding: 0 32rpx;         /* 左右内边距，避免文字贴边 */
+  font-size: 28rpx;
+}
+
+/* 筛选按钮 */
+.filter-btn {
+  margin-left: 20rpx;       /* 和输入框的间距 */
+  width: 100rpx;
+  height: 72rpx;
+  line-height: 72rpx;       /* 行高=高度，实现文字垂直居中 */
+  text-align: center;
+  border-radius: 36rpx;
+  background: #00B894;
+  color: white;
+  font-size: 26rpx;
+}
+
+/* ====================== 书籍列表容器 ====================== */
+.book-list {
+  padding: 0 24rpx;         /* 列表左右内边距，和上方搜索栏视觉对齐 */
+}
+
+/* ====================== 单条书籍卡片 ====================== */
+.book-card {
+  display: flex;            /* 横向布局：左侧封面 + 右侧书籍信息 */
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 20rpx;
+  margin-bottom: 20rpx;     /* 卡片与卡片之间的间距 */
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.05); /* 柔和阴影，增加悬浮质感 */
+}
+
+/* 书籍封面区 */
+.book-cover {
+  width: 140rpx;
+  height: 190rpx;
+  border-radius: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;  /* 封面内的文字/图标水平垂直居中 */
+  font-size: 36rpx;
+  font-weight: bold;
+  color: white;
+  flex-shrink: 0;           /* 禁止被压缩，保证封面尺寸固定不变形 */
+}
+
+/* 书籍信息区（右侧） */
+.book-info {
+  flex: 1;                  /* 占满封面右侧的所有剩余宽度 */
+  margin-left: 20rpx;       /* 和封面的间距 */
+  display: flex;
+  flex-direction: column;   /* 纵向排列：标题、作者、简介、元信息 */
+}
+
+/* 书名 */
+.book-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 6rpx;
+}
+
+/* 作者名 */
+.book-author {
+  font-size: 24rpx;
+  color: #636E72;           /* 次要信息用中灰色，弱化视觉权重 */
+  margin-bottom: 8rpx;
+}
+
+/* 书籍简介（2行省略） */
+.book-desc {
+  font-size: 22rpx;
+  color: #B2BEC3;           /* 辅助文字用浅灰色 */
+  overflow: hidden;         /* 超出部分隐藏 */
+  text-overflow: ellipsis;  /* 超出末尾显示省略号 */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;    /* 最多显示2行 */
+  -webkit-box-orient: vertical;
+  margin-bottom: 8rpx;
+}
+
+/* 书籍底部元信息（评分、标签等） */
+.book-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;          /* 标签过多时自动换行 */
+  gap: 12rpx;               /* 子元素之间的统一间距 */
+}
+
+/* 评分文字 */
+.book-rating {
+  font-size: 24rpx;
+  color: #F39C12;           /* 橙黄色，突出评分视觉效果 */
+}

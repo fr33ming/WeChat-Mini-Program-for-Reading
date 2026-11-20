@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/books/books",
+    "pages/bookDetail/bookDetail",
+    "pages/fun/fun",
+    "pages/readingTest/readingTest",
+    "pages/cases/cases",
+    "pages/mine/mine",
+    "pages/index/index",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "书适圈",
+    "navigationBarBackgroundColor": "#ffffff"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#00B894",
+    "list":[
+      {
+        "pagePath": "pages/books/books",
+        "text":"墨趣同栖"
+      },
+      {
+        "pagePath": "pages/fun/fun",
+        "text":"观文小试"
+      },
+      {
+        "pagePath": "pages/cases/cases",
+        "text":"阅读札记"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text":"书影自留"
+      }
+    ]
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

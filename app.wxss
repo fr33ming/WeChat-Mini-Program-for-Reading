@@ -1,0 +1,81 @@
+/**app.wxss**/
+/* ====================== 全局通用样式 ====================== */
+/* page：小程序页面根节点，作用于整个页面 */
+page {
+  background-color: #F5FBF9;  /* 页面整体背景色：浅青绿 */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; /* 字体栈，优先系统原生字体，兼容iOS、安卓、Windows */
+  color: #2D3436; /* 默认文字颜色：深灰黑 */
+}
+
+/* ====================== 卡片模块 .card ====================== */
+.card {
+  background: #FFFFFF;          /* 卡片白底 */
+  border-radius: 16rpx;        /* 圆角 */
+  padding: 24rpx;              /* 卡片内边距 */
+  margin: 20rpx 24rpx;         /* 卡片外边距：上下20rpx，左右24rpx */
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.05); /* 柔和阴影，浮起效果 */
+}
+
+/* ====================== 区块标题 .section-title ====================== */
+.section-title {
+  font-size: 34rpx;            /* 标题字号 */
+  font-weight: bold;            /* 加粗 */
+  margin: 24rpx 24rpx 12rpx;   /* 外边距：上、左右、下 */
+}
+
+/* ====================== 按钮组件 .btn 系列 ====================== */
+.btn {
+  display: inline-block;        /* 行内块，支持宽高，多个按钮可横向排列 */
+  padding: 16rpx 40rpx;        /* 按钮内边距：上下、左右 */
+  border-radius: 44rpx;        /* 大圆角，胶囊按钮 */
+  font-size: 28rpx;
+  font-weight: 600;
+  text-align: center;
+  background: #00B894;          /* 主色：青绿 */
+  color: white;
+  border: none;
+}
+/* 按钮点击激活态 */
+.btn:active {
+  background: #00A37D;          /* 点击时颜色加深 */
+  transform: scale(0.96);       /* 按下轻微缩小，按压反馈 */
+}
+/* 成功按钮变体 */
+.btn-success {
+  background: #00B894;          /* 绿色 */
+}
+/* 边框按钮（镂空） */
+.btn-outline {
+  background: transparent;      /* 透明背景 */
+  border: 2rpx solid #00B894;    /* 青绿描边 */
+  color: #00B894;
+}
+/* 小号按钮 */
+.btn-sm {
+  padding: 8rpx 24rpx;
+  font-size: 24rpx;
+}
+
+/* ====================== 空状态 .empty-state（无数据页面） ====================== */
+.empty-state {
+  text-align: center;           /* 整体居中 */
+  padding: 80rpx 40rpx;
+  color: #B2BEC3;               /* 浅灰色文字 */
+  font-size: 28rpx;
+}
+.empty-icon {
+  font-size: 80rpx;             /* 空状态图标字号 */
+  margin-bottom: 20rpx;
+}
+
+/* ====================== 标签角标 .badge 徽章 ====================== */
+.badge {
+  display: inline-block;
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  font-weight: 600;
+}
+.badge-primary { background: #E0F4EE; color: #00A37D; }   /* 主色徽章：浅青绿底青绿字 */
+.badge-success { background: #E8F8F5; color: #00B894; }   /* 成功徽章：浅绿底绿字 */
+.badge-warning { background: #FFF8E1; color: #F39C12; }  /* 警告徽章：浅黄底橙字 */

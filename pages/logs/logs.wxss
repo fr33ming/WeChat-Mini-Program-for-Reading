@@ -1,0 +1,27 @@
+/* 模板页自带容器布局（原在 app.wxss 全局，已迁移至本页，避免影响其他页面） */
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+.log-item {
+  margin-top: 20rpx;
+  text-align: center;
+}
+.log-item:last-child {
+  padding-bottom: env(safe-area-inset-bottom);
+}
