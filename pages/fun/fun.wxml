@@ -1,25 +1,29 @@
 <view class="container">
   <view class="section-title">🎯 发现有趣的功能</view>
+
+  <!-- 阅读测试：三张海报，可左右循环滑动，中间大两侧小 -->
+  <view class="quiz-section">
+    <swiper class="quiz-swiper" circular previous-margin="70rpx" next-margin="70rpx" bindchange="onSwiperChange">
+      <swiper-item wx:for="{{quizzes}}" wx:key="id">
+        <view class="quiz-poster {{index === currentIndex ? 'quiz-poster-active' : ''}}" style="background: {{item.color}}" bindtap="comingSoon">
+          <view class="quiz-poster-top">
+            <text class="quiz-poster-emoji">{{item.emoji}}</text>
+            <text class="quiz-poster-name">{{item.name}}</text>
+          </view>
+          <view class="quiz-poster-bottom">
+            <text class="quiz-score">科学性 {{item.science}}</text>
+            <text class="quiz-score">娱乐性 {{item.entertainment}}</text>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+
   <view class="fun-grid">
-  
-    <view class="fun-card featured" bindtap="comingSoon">
-      <text class="fun-icon">📖</text>
-      <view class="fun-info">
-        <text class="fun-name">阅读测试</text>
-        <text class="fun-desc">测试你的阅读水平，看看你是哪种阅读达人！</text>
-      </view>
-    </view>
-
-    <view class="fun-card" bindtap="goToEssay">
+    <view class="fun-card" bindtap="goToComment">
       <text class="fun-icon">🎲</text>
-      <text class="fun-name">随笔广场</text>
+      <text class="fun-name">评论广场</text>
       <text class="fun-desc">看看大家写了什么</text>
-    </view>
-
-    <view class="fun-card" bindtap="comingSoon">
-      <text class="fun-icon">📺</text>
-      <text class="fun-name">AI微课</text>
-      <text class="fun-desc">数字资源等着你</text>
     </view>
     
     <view class="fun-card" bindtap="goToFeedback">

@@ -10,6 +10,69 @@
   margin-bottom: 24rpx;
 }
 
+/* ====================== 阅读测试海报区 ====================== */
+.quiz-section {
+  margin-bottom: 30rpx;
+}
+
+/* 海报轮播：左右循环滑动 */
+.quiz-swiper {
+  height: 400rpx;
+}
+
+/* 单张海报（非当前项：缩小半透明，露出左右两侧提示可滑动） */
+.quiz-poster {
+  height: 100%;
+  border-radius: 24rpx;
+  padding: 40rpx 30rpx;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 6rpx 16rpx rgba(0,0,0,0.15);
+  transform: scale(0.9);
+  opacity: 0.55;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* 当前居中的海报：放大全彩 */
+.quiz-poster-active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* 海报上半部分：图标 + 测试名 */
+.quiz-poster-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quiz-poster-emoji {
+  font-size: 100rpx;
+}
+
+.quiz-poster-name {
+  font-size: 38rpx;
+  font-weight: bold;
+  margin-top: 20rpx;
+  letter-spacing: 4rpx;
+}
+
+/* 海报内部底部：评分 */
+.quiz-poster-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.quiz-score {
+  font-size: 28rpx;
+  line-height: 1.8;
+  letter-spacing: 2rpx;
+}
+
 /* ====================== 功能网格布局 ====================== */
 .fun-grid {
   display: grid;
@@ -31,25 +94,10 @@
   min-height: 160rpx; /* 卡片最小高度，保证视觉统一 */
 }
 
-/* 跨两列的特色大卡片 */
-.fun-card.featured {
-  grid-column: span 2;        /* 网格占满2列宽度 */
-  flex-direction: row;        /* 改为横向排列：图标+文字 */
-  background: #B8860B;        /* 纸黄棕主题色 */
-  color: white;
-  text-align: left;
-  padding: 30rpx;
-}
-
 /* 功能图标 */
 .fun-icon {
   font-size: 50rpx;
   margin-bottom: 10rpx;
-}
-
-/* 特色卡片内文字信息容器 */
-.fun-info {
-  margin-left: 20rpx;
 }
 
 /* 功能名称 */
@@ -63,21 +111,4 @@
 .fun-desc {
   font-size: 24rpx;
   opacity: 0.8; /* 描述文字降低透明度弱化 */
-}
-
-/* 特色卡片覆盖样式：图标 */
-.featured .fun-icon {
-  margin-bottom: 0;
-  font-size: 60rpx;
-}
-
-/* 特色卡片覆盖样式：名称 */
-.featured .fun-name {
-  color: white;
-  font-size: 34rpx;
-}
-
-/* 特色卡片覆盖样式：描述 */
-.featured .fun-desc {
-  font-size: 26rpx;
 }

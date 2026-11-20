@@ -11,9 +11,92 @@
     </view>
   </view>
 
-  <!-- 个人纪录入口（统计与个人内容都在这个新页面） -->
-  <view class="records-entry" bindtap="goToRecords">
-    <text class="records-entry-label">📊 个人记录</text>
-    <text class="records-entry-arrow">›</text>
+<!-- 标签页 -->
+<view class="tab-row">
+  <view class="mine-tab {{activeTab === 'read' ? 'active' : ''}}" bindtap="switchTab" data-tab="read">📖 已读</view>
+  <view class="mine-tab {{activeTab === 'comment' ? 'active' : ''}}" bindtap="switchTab" data-tab="comment">✍️ 评论</view>
+  <view class="mine-tab {{activeTab === 'fav' ? 'active' : ''}}" bindtap="switchTab" data-tab="fav">☆ 收藏</view>
+  <view class="mine-tab {{activeTab === 'like' ? 'active' : ''}}" bindtap="switchTab" data-tab="like">♥ 喜欢</view>
+</view>
+
+<!-- 已读书籍列表 -->
+<view wx:if="{{activeTab === 'read'}}">
+  <view wx:if="{{readBooks.length === 0}}" class="empty-state">
+    <view class="empty-icon">📭</view>
+    <view>还没有已读书籍，去书籍推荐看看吧！</view>
   </view>
+  <view class="read-item" wx:for="{{readBooks}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+    <view class="book-cover" style="background: {{item.coverColor}}">{{item.cover}}</view>
+    <view class="info">
+      <view class="title">{{item.title}}</view>
+      <view class="subtitle">{{item.author}} · {{item.category}}</view>
+    </view>
+  </view>
+</view>
+
+<!-- 我的评论列表 -->
+<view wx:if="{{activeTab === 'comment'}}">
+  <view wx:if="{{myComments.length === 0}}" class="empty-state">
+    <view class="empty-icon">✍️</view>
+    <view>还没有写过评论，去「墨趣同栖」写一条吧！</view>
+  </view>
+  <view class="comment-item" wx:for="{{myComments}}" wx:key="_id" bindtap="goToComment" data-id="{{item._id}}">
+    <view class="comment-header">
+      <text class="comment-type {{item.type}}">{{item.typeName}}</text>
+      <text class="comment-title">{{item.title}}</text>
+    </view>
+    <view class="comment-book">📖 《{{item.bookTitle}}》</view>
+    <view class="review-time">{{item.time}}</view>
+  </view>
+</view>
+
+  <!-- 我的收藏列表 -->
+  <view wx:if="{{activeTab === 'fav'}}">
+    <!-- 类型筛选：评论/案例/随笔 -->
+    <view class="type-filter">
+      <view class="type-filter-btn {{favFilter === 'comment' ? 'active' : ''}}" data-filter="comment" bindtap="onFavFilter">✍️ 评论</view>
+      <view class="type-filter-btn {{favFilter === 'case' ? 'active' : ''}}" data-filter="case" bindtap="onFavFilter">📰 案例</view>
+      <view class="type-filter-btn {{favFilter === 'essay' ? 'active' : ''}}" data-filter="essay" bindtap="onFavFilter">🖋 随笔</view>
+    </view>
+    <view wx:if="{{favShow.length === 0}}" class="empty-state">
+      <view class="empty-icon">☆</view>
+      <view wx:if="{{favFilter === 'comment'}}">还没有收藏的评论，去评论详情页点收藏吧！</view>
+      <view wx:elif="{{favFilter === 'case'}}">还没有收藏的案例，敬请期待</view>
+      <view wx:else>还没有收藏的随笔，敬请期待</view>
+    </view>
+  <view class="comment-item" wx:for="{{favShow}}" wx:key="_id" bindtap="goToComment" data-id="{{item._id}}">
+    <view class="comment-header">
+      <text class="comment-type {{item.type}}">{{item.typeName}}</text>
+      <text class="comment-title">{{item.title}}</text>
+    </view>
+    <view class="comment-book">📖 《{{item.bookTitle}}》</view>
+    <view class="review-time">{{item.time}}</view>
+  </view>
+</view>
+
+  <!-- 我的喜欢列表 -->
+  <view wx:if="{{activeTab === 'like'}}">
+    <!-- 类型筛选：评论/案例/随笔 -->
+    <view class="type-filter">
+      <view class="type-filter-btn {{likeFilter === 'comment' ? 'active' : ''}}" data-filter="comment" bindtap="onLikeFilter">✍️ 评论</view>
+      <view class="type-filter-btn {{likeFilter === 'case' ? 'active' : ''}}" data-filter="case" bindtap="onLikeFilter">📰 案例</view>
+      <view class="type-filter-btn {{likeFilter === 'essay' ? 'active' : ''}}" data-filter="essay" bindtap="onLikeFilter">🖋 随笔</view>
+    </view>
+    <view wx:if="{{likeShow.length === 0}}" class="empty-state">
+      <view class="empty-icon">♥</view>
+      <view wx:if="{{likeFilter === 'comment'}}">还没有喜欢的评论，去评论详情页点个赞吧！</view>
+      <view wx:elif="{{likeFilter === 'case'}}">还没有喜欢的案例，敬请期待</view>
+      <view wx:else>还没有喜欢的随笔，敬请期待</view>
+    </view>
+  <view class="comment-item" wx:for="{{likeShow}}" wx:key="_id" bindtap="goToComment" data-id="{{item._id}}">
+    <view class="comment-header">
+      <text class="comment-type {{item.type}}">{{item.typeName}}</text>
+      <text class="comment-title">{{item.title}}</text>
+    </view>
+    <view class="comment-book">📖 《{{item.bookTitle}}》</view>
+    <view class="review-time">{{item.time}}</view>
+  </view>
+</view>
+
+
 </view>

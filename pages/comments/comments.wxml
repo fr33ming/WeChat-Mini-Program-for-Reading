@@ -1,0 +1,25 @@
+<!-- 评论广场 -->
+<view class="comment-section">
+  <view class="comment-header">
+    <view class="comment-title">✍️ 评论广场</view>
+    <view class="comment-sub">写读后感、发书评，一起思辨交流</view>
+  </view>
+  <view wx:if="{{comments.length === 0}}" class="empty-state">
+    <view class="empty-icon">✍️</view>
+    <view>还没有评论，来写第一条吧！</view>
+  </view>
+  <view class="comment-card" wx:for="{{comments}}" wx:key="_id" bindtap="goToComment" data-id="{{item._id}}">
+    <view class="comment-top">
+      <text class="comment-type {{item.type}}">{{item.typeName}}</text>
+      <text class="comment-card-title">{{item.title}}</text>
+    </view>
+    <view class="comment-book">《{{item.bookTitle}}》</view>
+    <view class="comment-content">{{item.content}}</view>
+    <view class="comment-meta">
+      <text class="comment-user">{{item.userName}}</text>
+      <text class="comment-time">{{item.time}}</text>
+      <text class="comment-stat">♥ {{item.likeCount}}</text>
+      <text class="comment-stat">💬 {{item.commentCount}}</text>
+    </view>
+  </view>
+</view>

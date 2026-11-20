@@ -4,7 +4,7 @@ const cloudUtil = require('../../utils/cloud.js'); // 云数据库通用工具
 // 月度书单的三个栏目（key 与 utils/books.js 里的 shelf 字段对应）
 const SHELVES = [
   { key: 'required', title: '课标必读书目', icon: '🎓', desc: '教材指定阅读，打牢语文基础' },
-  { key: 'grade', title: '分年级拓展书目', icon: '📚', desc: '按年级拓展阅读，开阔视野' },
+  { key: 'grade', title: '分年级拓展书目', icon: '📚', desc: '按高一/高二/高三拓展阅读，开阔视野' },
   { key: 'deep', title: '人文深度读物', icon: '🕊️', desc: '人文经典，滋养思考与成长' }
 ];
 
@@ -16,14 +16,13 @@ const FILTERS = [
   { key: 'deep', label: '人文深度' }
 ];
 
-// 年级选项：不限 + 一~九年级 + 高一/高二/高三（value 与 utils/books.js 里的 grade 对应）
-const GRADES = [{ value: 0, label: '不限' }];
-for (let i = 1; i <= 9; i++) {
-  GRADES.push({ value: i, label: `${i}年级` });
-}
-GRADES.push({ value: 10, label: '高一' });
-GRADES.push({ value: 11, label: '高二' });
-GRADES.push({ value: 12, label: '高三' });
+// 年级选项：不限 + 高一/高二/高三（课标不分年级；value 与 utils/books.js 里的 grade 对应）
+const GRADES = [
+  { value: 0, label: '不限' },
+  { value: 10, label: '高一' },
+  { value: 11, label: '高二' },
+  { value: 12, label: '高三' }
+];
 
 Page({
   // ====================== 页面数据区 ======================

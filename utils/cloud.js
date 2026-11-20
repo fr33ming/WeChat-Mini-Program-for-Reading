@@ -3,6 +3,9 @@
 // 集合说明：
 //   reviews  评价（权限：所有用户可读，仅创建者可读写）
 //   readBooks 已读（权限：仅创建者可读写）每条记录 = 一个用户读过的一本书 {bookId}
+//   comments  评论（权限：所有用户可读，仅创建者可读写）每条记录 = 一条评论
+//   commentMarks 点赞/收藏记录（权限：仅创建者可读写）每条记录 = {commentId, kind: 'like'|'fav'}
+//   commentReplies 评论回复（权限：所有用户可读，仅创建者可读写）每条记录 = {commentId, content, time}
 // 云函数：getOpenid（获取当前用户openid，需在开发者工具中部署一次）
 
 // ====================== 当前用户openid ======================
@@ -91,13 +94,13 @@ function addReview({ bookId, bookTitle, rating, content, time }) {
   });
 }
 
-// ====================== 随笔 ======================
-// 全部随笔（分页拉取，突破单次20条上限）
-function getAllEssays() {
+// ====================== 评论 ======================
+// 全部评论（分页拉取，突破单次20条上限）
+function getAllComments() {
   const db = wx.cloud.database();
   const PAGE_SIZE = 20;
   let all = [];
-  const fetchPage = skip => db.collection('essays').skip(skip).limit(PAGE_SIZE).get()
+  const fetchPage = skip => db.collection('comments').skip(skip).limit(PAGE_SIZE).get()
     .then(res => {
       all = all.concat(res.data);
       if (res.data.length === PAGE_SIZE) return fetchPage(skip + PAGE_SIZE); // 还有下一页
@@ -106,73 +109,73 @@ function getAllEssays() {
   return fetchPage(0);
 }
 
-// 单篇随笔详情（按_id读取）
-function getEssay(essayId) {
+// 单条评论详情（按_id读取）
+function getComment(commentId) {
   const db = wx.cloud.database();
-  return db.collection('essays').doc(essayId).get().then(res => res.data);
+  return db.collection('comments').doc(commentId).get().then(res => res.data);
 }
 
-// 某本书的随笔（按时间倒序）
-function getEssaysByBook(bookId) {
+// 某本书的评论（按时间倒序）
+function getCommentsByBook(bookId) {
   const db = wx.cloud.database();
-  return db.collection('essays').where({ bookId }).get()
+  return db.collection('comments').where({ bookId }).get()
     .then(res => res.data.sort((a, b) => b.time.localeCompare(a.time)));
 }
 
-// 我的随笔（通过openid筛选，按时间倒序）
-function getMyEssays() {
+// 我的评论（通过openid筛选，按时间倒序）
+function getMyComments() {
   const db = wx.cloud.database();
   return getMyOpenid().then(openid => {
     if (!openid) return []; // 拿不到openid时（云函数未部署）返回空列表
-    return db.collection('essays').where({ _openid: openid }).get()
+    return db.collection('comments').where({ _openid: openid }).get()
       .then(res => res.data.sort((a, b) => b.time.localeCompare(a.time)));
   });
 }
 
-// 新增一篇随笔（发布者_openid由云开发自动记录）
-function addEssay({ bookId, bookTitle, type, title, content, time }) {
+// 新增一条评论（发布者_openid由云开发自动记录）
+function addComment({ bookId, bookTitle, type, title, content, time }) {
   const db = wx.cloud.database();
-  return db.collection('essays').add({
+  return db.collection('comments').add({
     data: { bookId, bookTitle, type, title, content, time }
   });
 }
 
-// ====================== 随笔点赞与收藏 ======================
+// ====================== 评论点赞与收藏 ======================
 // 点赞/取消点赞，返回最新状态（true=已点赞）
-function toggleLike(essayId) {
-  return toggleMark(essayId, 'like');
+function toggleLike(commentId) {
+  return toggleMark(commentId, 'like');
 }
 
 // 收藏/取消收藏，返回最新状态（true=已收藏）
-function toggleFav(essayId) {
-  return toggleMark(essayId, 'fav');
+function toggleFav(commentId) {
+  return toggleMark(commentId, 'fav');
 }
 
 // 点赞与收藏的通用增删逻辑（kind: 'like'点赞 | 'fav'收藏）
-function toggleMark(essayId, kind) {
+function toggleMark(commentId, kind) {
   const db = wx.cloud.database();
   return getMyOpenid().then(openid => {
     if (!openid) return false;
     // 查我是否已经点过（带openid精确匹配，避免误删别人的记录）
-    return db.collection('essayMarks').where({ essayId, kind, _openid: openid }).get().then(res => {
+    return db.collection('commentMarks').where({ commentId, kind, _openid: openid }).get().then(res => {
       if (res.data.length > 0) {
         // 已点过 → 删除记录，取消
-        return db.collection('essayMarks').doc(res.data[0]._id).remove().then(() => false);
+        return db.collection('commentMarks').doc(res.data[0]._id).remove().then(() => false);
       }
       // 没点过 → 新增一条
-      return db.collection('essayMarks').add({ data: { essayId, kind } }).then(() => true);
+      return db.collection('commentMarks').add({ data: { commentId, kind } }).then(() => true);
     });
   });
 }
 
-// 某篇随笔的点赞/收藏信息（数量 + 我是否已点）
-function getEssayMarkInfo(essayId) {
+// 某条评论的点赞/收藏信息（数量 + 我是否已点）
+function getCommentMarkInfo(commentId) {
   const db = wx.cloud.database();
   return getMyOpenid().then(openid => Promise.all([
-    db.collection('essayMarks').where({ essayId, kind: 'like' }).count(),
-    db.collection('essayMarks').where({ essayId, kind: 'fav' }).count(),
-    db.collection('essayMarks').where({ essayId, kind: 'like', _openid: openid }).get(),
-    db.collection('essayMarks').where({ essayId, kind: 'fav', _openid: openid }).get()
+    db.collection('commentMarks').where({ commentId, kind: 'like' }).count(),
+    db.collection('commentMarks').where({ commentId, kind: 'fav' }).count(),
+    db.collection('commentMarks').where({ commentId, kind: 'like', _openid: openid }).get(),
+    db.collection('commentMarks').where({ commentId, kind: 'fav', _openid: openid }).get()
   ])).then(([likeCnt, favCnt, myLike, myFav]) => ({
     likeCount: likeCnt.total,
     favCount: favCnt.total,
@@ -181,12 +184,12 @@ function getEssayMarkInfo(essayId) {
   }));
 }
 
-// 全部点赞/收藏记录（分页拉取，用于随笔列表统计）
+// 全部点赞/收藏记录（分页拉取，用于评论列表统计）
 function getAllMarks() {
   const db = wx.cloud.database();
   const PAGE_SIZE = 20;
   let all = [];
-  const fetchPage = skip => db.collection('essayMarks').skip(skip).limit(PAGE_SIZE).get()
+  const fetchPage = skip => db.collection('commentMarks').skip(skip).limit(PAGE_SIZE).get()
     .then(res => {
       all = all.concat(res.data);
       if (res.data.length === PAGE_SIZE) return fetchPage(skip + PAGE_SIZE);
@@ -195,48 +198,48 @@ function getAllMarks() {
   return fetchPage(0);
 }
 
-// 我收藏的随笔列表（通过收藏记录反查随笔）
-function getMyFavoriteEssays() {
+// 我收藏的评论列表（通过收藏记录反查评论）
+function getMyFavoriteComments() {
   const db = wx.cloud.database();
   return getMyOpenid().then(openid => {
     if (!openid) return [];
-    return db.collection('essayMarks').where({ kind: 'fav', _openid: openid }).get()
+    return db.collection('commentMarks').where({ kind: 'fav', _openid: openid }).get()
       .then(res => {
-        const ids = res.data.map(m => m.essayId); // 我收藏的随笔id列表
+        const ids = res.data.map(m => m.commentId); // 我收藏的评论id列表
         if (ids.length === 0) return [];
-        return getAllEssays().then(all => all.filter(e => ids.includes(e._id)));
+        return getAllComments().then(all => all.filter(e => ids.includes(e._id)));
       });
   });
 }
 
-// 我点赞过的随笔列表（通过点赞记录反查随笔，用于“我的喜欢”）
-function getMyLikedEssays() {
+// 我点赞过的评论列表（通过点赞记录反查评论，用于”我的喜欢”）
+function getMyLikedComments() {
   const db = wx.cloud.database();
   return getMyOpenid().then(openid => {
     if (!openid) return [];
-    return db.collection('essayMarks').where({ kind: 'like', _openid: openid }).get()
+    return db.collection('commentMarks').where({ kind: 'like', _openid: openid }).get()
       .then(res => {
-        const ids = res.data.map(m => m.essayId); // 我点赞的随笔id列表
+        const ids = res.data.map(m => m.commentId); // 我点赞的评论id列表
         if (ids.length === 0) return [];
-        return getAllEssays().then(all => all.filter(e => ids.includes(e._id)));
+        return getAllComments().then(all => all.filter(e => ids.includes(e._id)));
       });
   });
 }
 
-// ====================== 随笔评论 ======================
-// 某篇随笔的评论列表（按时间倒序）
-function getEssayComments(essayId) {
+// ====================== 评论回复 ======================
+// 某条评论的回复列表（按时间倒序）
+function getCommentReplies(commentId) {
   const db = wx.cloud.database();
-  return db.collection('essayComments').where({ essayId }).get()
+  return db.collection('commentReplies').where({ commentId }).get()
     .then(res => res.data.sort((a, b) => b.time.localeCompare(a.time)));
 }
 
-// 全部评论记录（分页拉取，用于随笔列表统计评论数）
-function getAllComments() {
+// 全部回复记录（分页拉取，用于评论列表统计回复数）
+function getAllReplies() {
   const db = wx.cloud.database();
   const PAGE_SIZE = 20;
   let all = [];
-  const fetchPage = skip => db.collection('essayComments').skip(skip).limit(PAGE_SIZE).get()
+  const fetchPage = skip => db.collection('commentReplies').skip(skip).limit(PAGE_SIZE).get()
     .then(res => {
       all = all.concat(res.data);
       if (res.data.length === PAGE_SIZE) return fetchPage(skip + PAGE_SIZE);
@@ -245,11 +248,11 @@ function getAllComments() {
   return fetchPage(0);
 }
 
-// 发表一条评论（发布者_openid由云开发自动记录）
-function addComment({ essayId, content, time }) {
+// 发表一条回复（发布者_openid由云开发自动记录）
+function addReply({ commentId, content, time }) {
   const db = wx.cloud.database();
-  return db.collection('essayComments').add({
-    data: { essayId, content, time }
+  return db.collection('commentReplies').add({
+    data: { commentId, content, time }
   });
 }
 
@@ -326,20 +329,20 @@ module.exports = {
   getMyReviews,
   getAllReviews,
   addReview,
-  getAllEssays,
-  getEssay,
-  getEssaysByBook,
-  getMyEssays,
-  addEssay,
+  getAllComments,
+  getComment,
+  getCommentsByBook,
+  getMyComments,
+  addComment,
   toggleLike,
   toggleFav,
-  getEssayMarkInfo,
+  getCommentMarkInfo,
   getAllMarks,
-  getMyFavoriteEssays,
-  getEssayComments,
-  getAllComments,
-  addComment,
-  getMyLikedEssays,
+  getMyFavoriteComments,
+  getCommentReplies,
+  getAllReplies,
+  addReply,
+  getMyLikedComments,
   addFeedback,
   defaultNickname,
   getMyUser,

@@ -12,8 +12,8 @@
     <view wx:for="{{filters}}" wx:key="key" class="filter-btn {{filterShelf === item.key ? 'active' : ''}}" data-shelf="{{item.key}}" bindtap="onFilterShelf">{{item.label}}</view>
   </view>
 
-  <!-- 年级选择（仅课标必读/分年级拓展时显示，搜索时隐藏） -->
-  <scroll-view wx:if="{{!searchTerm && (filterShelf === 'required' || filterShelf === 'grade')}}" class="grade-row" scroll-x enhanced show-scrollbar="{{false}}">
+  <!-- 年级选择（仅分年级拓展时显示，搜索时隐藏；课标不分年级） -->
+  <scroll-view wx:if="{{!searchTerm && filterShelf === 'grade'}}" class="grade-row" scroll-x enhanced show-scrollbar="{{false}}">
     <view class="grade-btns">
       <view wx:for="{{grades}}" wx:key="value" class="grade-btn {{filterGrade === item.value ? 'active' : ''}}" data-grade="{{item.value}}" bindtap="onFilterGrade">{{item.label}}</view>
     </view>
@@ -30,6 +30,7 @@
       <view class="book-info">
         <view class="book-title">{{item.title}}</view>
         <view class="book-author">{{item.author}}</view>
+        <view class="book-desc">{{item.guide}}</view>
         <view class="book-meta">
           <text wx:for="{{item.tags}}" wx:for-item="tag" wx:key="*this" class="badge badge-primary">{{tag}}</text>
           <text wx:if="{{item.isRead}}" class="badge badge-success">✓ 已读</text>

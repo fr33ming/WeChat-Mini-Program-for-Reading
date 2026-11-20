@@ -15,35 +15,29 @@
     </view>
   </view>
 
-  <!-- 内容简介 -->
-  <view class="section">
-    <view class="section-label">📖 内容简介</view>
-    <text class="section-text">{{book.description}}</text>
-  </view>
-
-  <!-- 专业导读 + 写随笔 -->
+  <!-- 专业导读 + 写评论 -->
   <view class="section">
     <view class="section-label">🎓 专业导读</view>
     <text class="section-text">{{book.guide}}</text>
   </view>
 
-  <!-- 本书随笔 -->
+  <!-- 本书评论 -->
   <view class="section">
-    <!-- 标题与写随笔按钮同一行：标题靠左，按钮靠右 -->
-    <view class="essay-section-header">
-      <view class="section-label">✍️ 本书随笔 ({{bookEssays.length}}篇)</view>
-      <button class="btn btn-sm" bindtap="goToWrite">✍️ 创作一条随笔！</button>
+    <!-- 标题与写评论按钮同一行：标题靠左，按钮靠右 -->
+    <view class="comment-section-header">
+      <view class="section-label">✍️ 本书评论 ({{bookComments.length}}条)</view>
+      <button class="btn btn-sm" bindtap="goToWrite">✍️ 创作一条评论！</button>
     </view>
-    <view wx:if="{{bookEssays.length === 0}}" class="empty-state">
+    <view wx:if="{{bookComments.length === 0}}" class="empty-state">
       <view class="empty-icon">✍️</view>
-      <view>还没有人写过这本书的随笔，来写第一篇吧</view>
+      <view>还没有人评论过这本书，来写第一条吧</view>
     </view>
-    <view class="essay-item" wx:for="{{bookEssays}}" wx:key="_id" bindtap="goToEssay" data-id="{{item._id}}">
-      <view class="essay-item-top">
-        <text class="essay-type {{item.type}}">{{item.typeName}}</text>
-        <text class="essay-item-title">{{item.title}}</text>
+    <view class="comment-item" wx:for="{{bookComments}}" wx:key="_id" bindtap="goToComment" data-id="{{item._id}}">
+      <view class="comment-item-top">
+        <text class="comment-type {{item.type}}">{{item.typeName}}</text>
+        <text class="comment-item-title">{{item.title}}</text>
       </view>
-      <view class="essay-item-meta">
+      <view class="comment-item-meta">
         <text>{{item.userName}}</text>
         <text>{{item.time}}</text>
       </view>

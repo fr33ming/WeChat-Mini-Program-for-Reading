@@ -1,0 +1,41 @@
+<view class="container">
+  <!-- 评论正文 -->
+  <view class="comment-card">
+    <view class="comment-top">
+      <text class="comment-type {{comment.type}}">{{typeName}}</text>
+      <text class="comment-title">{{comment.title}}</text>
+    </view>
+    <view class="comment-book" bindtap="goToBook">📖 《{{comment.bookTitle}}》</view>
+    <view class="comment-meta">
+      <text>{{userName}}</text>
+      <text>{{comment.time}}</text>
+    </view>
+    <view class="comment-body">{{comment.content}}</view>
+
+    <!-- 点赞/收藏 -->
+    <view class="action-row">
+      <view class="action-btn {{liked ? 'active' : ''}}" bindtap="toggleLike">♥ 点赞 {{likeCount}}</view>
+      <view class="action-btn {{faved ? 'active' : ''}}" bindtap="toggleFav">☆ 收藏 {{favCount}}</view>
+    </view>
+  </view>
+
+  <!-- 评论区 -->
+  <view class="section">
+    <view class="section-label">💬 评论区 ({{comments.length}}条)</view>
+    <view class="comment-input-row">
+      <input class="comment-input" placeholder="理性表达，结合文本思辨交流..." value="{{commentInput}}" bindinput="onCommentInput" />
+      <view class="send-btn" bindtap="sendComment">发送</view>
+    </view>
+    <view wx:if="{{comments.length === 0}}" class="empty-state">
+      <view class="empty-icon">💬</view>
+      <view>还没有评论，来聊聊你的看法吧</view>
+    </view>
+    <view class="comment-item" wx:for="{{comments}}" wx:key="_id">
+      <view class="comment-header">
+        <text class="comment-user">{{item.userName}}</text>
+        <text class="comment-time">{{item.time}}</text>
+      </view>
+      <view class="comment-content">{{item.content}}</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,26 @@
+<view class="page">
+  <!-- 文章头部：标题 / 作者 / 日期 -->
+  <view class="article-head">
+    <view class="article-title">{{article.title}}</view>
+    <view class="article-meta">
+      <text>{{article.author}}</text>
+      <text>{{article.date}}</text>
+    </view>
+  </view>
+
+  <!-- 正文：支持多种块（与 utils/articles.js 里 content 的结构对应）
+       { h: 小标题 } / { q: 引用 } / { p: 段落 } / { img: 图片, caption: 图注 } -->
+  <view class="article-body">
+    <block wx:for="{{article.content}}" wx:key="index" wx:for-item="block">
+      <view wx:if="{{block.h}}" class="block-h">{{block.h}}</view>
+      <view wx:elif="{{block.q}}" class="block-q">{{block.q}}</view>
+      <view wx:elif="{{block.img}}" class="block-img-wrap">
+        <image class="block-img" src="{{block.img}}" mode="widthFix" />
+        <text wx:if="{{block.caption}}" class="block-img-caption">{{block.caption}}</text>
+      </view>
+      <view wx:else class="block-p">{{block.p}}</view>
+    </block>
+  </view>
+
+  <view class="article-footer">— 书适圈 · 阅读札记 —</view>
+</view>

@@ -48,23 +48,140 @@
   opacity: 0.8;                /* 简介文字降低透明度 */
 }
 
-/* ====================== 个人纪录入口 ====================== */
-.records-entry {
+/* ====================== Tab切换栏 ====================== */
+.tab-row {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  gap: 16rpx;
+  margin-bottom: 20rpx;
+}
+.mine-tab {
+  flex: 1;                     /* tab标签等分宽度 */
+  padding: 16rpx;
+  text-align: center;
+  border-radius: 40rpx;
+  background: #FFFDF8;
+  color: #8A7A5C;
+  font-size: 24rpx;
+  font-weight: 600;
+  border: 2rpx solid #E7D9B8;
+}
+.mine-tab.active {
+  background: #B8860B;         /* 选中tab主题色背景 */
+  color: white;
+  border-color: #B8860B;
+}
+
+/* ====================== 收藏/喜欢类型筛选条 ====================== */
+.type-filter {
+  display: flex;
+  gap: 16rpx;
+  margin-bottom: 20rpx;
+}
+.type-filter-btn {
+  padding: 10rpx 32rpx;
+  border-radius: 32rpx;
+  font-size: 24rpx;
+  font-weight: 600;
+  background: #F0E6CE;
+  color: #8A7A5C;
+  border: 2rpx solid #E7D9B8;
+}
+.type-filter-btn.active {
+  background: #B8860B;
+  color: white;
+  border-color: #B8860B;
+}
+
+/* ====================== 列表公共项样式 ====================== */
+.read-item, .comment-item {
+  display: flex;
+  flex-direction: column;
   background: #FFFDF8;
   border-radius: 16rpx;
-  padding: 28rpx 24rpx;
+  padding: 20rpx;
+  margin-bottom: 16rpx;
   box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.05);
 }
-.records-entry-label {
-  font-size: 30rpx;
-  font-weight: 600;
+.read-item {
+  flex-direction: row;         /* 已读书籍：封面+文字横向排布 */
+  align-items: center;
+}
+.book-cover {
+  width: 80rpx;
+  height: 110rpx;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: white;
+  flex-shrink: 0;              /* 封面禁止压缩变形 */
+}
+.info {
+  margin-left: 16rpx;
+  flex: 1;                     /* 占据剩余宽度 */
+}
+.title {
+  font-size: 28rpx;
+  font-weight: bold;
   color: #4A3B22;
 }
-.records-entry-arrow {
-  font-size: 40rpx;
+.subtitle {
+  font-size: 22rpx;
   color: #B3A687;
-  line-height: 1;
+  margin-top: 6rpx;
+}
+
+/* ====================== 时间小字（随笔/收藏条目共用） ====================== */
+.review-time {
+  font-size: 22rpx;
+  color: #B3A687;
+  margin-top: 8rpx;
+}
+
+/* ====================== 评论条目样式 ====================== */
+.comment-header {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+.comment-type {
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+  font-size: 22rpx;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.comment-type.reading {
+  background: #F3E6C4;
+  color: #96710A;
+}
+.comment-type.review {
+  background: #FDEBD0;
+  color: #C77B1E;
+}
+.comment-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #4A3B22;
+}
+.comment-book {
+  font-size: 24rpx;
+  color: #8A7A5C;
+  margin-top: 10rpx;
+}
+
+/* ====================== 空状态 ====================== */
+.empty-state {
+  background: #FFFDF8;
+  border-radius: 16rpx;
+  padding: 60rpx 20rpx;
+  text-align: center;
+  color: #B3A687;
+  font-size: 26rpx;
+}
+.empty-icon {
+  font-size: 60rpx;
+  margin-bottom: 12rpx;
 }

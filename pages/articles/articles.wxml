@@ -1,0 +1,21 @@
+<view class="container">
+  <!-- 板块切换：随笔 / 案例 -->
+  <view class="tab-row">
+    <view class="mine-tab {{activeTab === 'essay' ? 'active' : ''}}" bindtap="switchTab" data-tab="essay">🖋 随笔</view>
+    <view class="mine-tab {{activeTab === 'case' ? 'active' : ''}}" bindtap="switchTab" data-tab="case">📰 案例</view>
+  </view>
+
+  <!-- 推文列表（公众号推文卡片形式） -->
+  <view wx:if="{{showList.length === 0}}" class="empty-state">
+    <view class="empty-icon">📄</view>
+    <view>这个板块还没有内容，敬请期待</view>
+  </view>
+  <view class="article-card" wx:for="{{showList}}" wx:key="id" bindtap="goDetail" data-id="{{item.id}}">
+    <view class="article-cover" style="background: {{item.coverColor}}">{{item.cover}}</view>
+    <view class="article-info">
+      <view class="article-title">{{item.title}}</view>
+      <view class="article-summary">{{item.summary}}</view>
+      <view class="article-meta">{{item.author}} · {{item.date}}</view>
+    </view>
+  </view>
+</view>

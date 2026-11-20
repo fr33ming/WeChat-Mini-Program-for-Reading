@@ -6,7 +6,7 @@ Page({
   data: {
     book: {},                // 当前书籍详情对象
     isRead: false,           // 是否标记为已读
-    bookEssays: []           // 本书的随笔列表
+    bookComments: []           // 本书的评论列表
   },
 
   // ====================== 页面生命周期 ======================
@@ -16,10 +16,10 @@ Page({
   },
 
   onShow() {
-    // 从其他页面返回时刷新已读状态与随笔列表
+    // 从其他页面返回时刷新已读状态与评论列表
     if (this.data.book.id) {
       this.refreshBookState(this.data.book.id);
-      this.loadBookEssays(this.data.book.id);
+      this.loadBookComments(this.data.book.id);
     }
   },
 
@@ -29,7 +29,7 @@ Page({
     if (book) {
       this.setData({ book });
       this.refreshBookState(id); // 加载已读状态
-      this.loadBookEssays(id);   // 加载本书随笔
+      this.loadBookComments(id);   // 加载本书评论
     }
   },
 
@@ -42,19 +42,19 @@ Page({
     });
   },
 
-  // ====================== 加载本书随笔 ======================
-  loadBookEssays(bookId) {
+  // ====================== 加载本书评论 ======================
+  loadBookComments(bookId) {
     Promise.all([
-      cloudUtil.getEssaysByBook(bookId),
+      cloudUtil.getCommentsByBook(bookId),
       cloudUtil.getUserNicknameMap()
-    ]).then(([essays, userMap]) => {
+    ]).then(([comments, userMap]) => {
       // 拼接类型标签与作者名（改过名字用昵称，否则用默认名）
-      const bookEssays = essays.map(e => ({
+      const bookComments = comments.map(e => ({
         ...e,
         typeName: e.type === 'reading' ? '读后感' : '书评',
         userName: userMap[e._openid] || cloudUtil.defaultNickname(e._openid)
       }));
-      this.setData({ bookEssays });
+      this.setData({ bookComments });
     });
   },
 
@@ -62,14 +62,14 @@ Page({
   goToWrite() {
     const bookId = this.data.book.id;
     wx.navigateTo({
-      url: `/pages/essayWrite/essayWrite?bookId=${bookId}` // 带上本书id，写随笔页默认选中
+      url: `/pages/commentWrite/commentWrite?bookId=${bookId}` // 带上本书id，写评论页默认选中
     });
   },
 
-  goToEssay(e) {
-    const id = e.currentTarget.dataset.id; // 随笔id
+  goToComment(e) {
+    const id = e.currentTarget.dataset.id; // 评论id
     wx.navigateTo({
-      url: `/pages/essayDetail/essayDetail?id=${id}`
+      url: `/pages/commentDetail/commentDetail?id=${id}`
     });
   },
 
