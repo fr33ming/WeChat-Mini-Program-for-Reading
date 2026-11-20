@@ -9,7 +9,7 @@
   display: flex;                /* 横向布局：封面 + 书籍基础信息 */
   width: 100%;                  /* 固定宽度，与下方所有区块完全等宽 */
   box-sizing: border-box;       /* 内边距计入宽度，不撑大盒子 */
-  background: #FFFDF8;
+  background: rgba(255, 253, 248, 0.85);
   border-radius: 24rpx;
   padding: 24rpx;
   margin-bottom: 24rpx;
@@ -19,13 +19,8 @@
   width: 140rpx;
   height: 190rpx;
   border-radius: 12rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;     /* 封面文字居中 */
-  font-size: 40rpx;
-  font-weight: bold;
-  color: white;
   flex-shrink: 0;              /* 封面禁止压缩，保持固定尺寸 */
+  background: rgba(243, 230, 196, 0.85);         /* 图片加载前的底色 */
 }
 .info {
   flex: 1;                     /* 占据剩余宽度 */
@@ -46,7 +41,7 @@
   gap: 8rpx;
 }
 .tag {
-  background: #F0E6CE;
+  background: rgba(240, 230, 206, 0.85);
   border-radius: 20rpx;
   padding: 4rpx 16rpx;
   font-size: 22rpx;
@@ -61,12 +56,12 @@
   border-radius: 30rpx;
   font-size: 24rpx;
   font-weight: 600;
-  background: #F3E6C4;         /* 未读状态：米黄底 */
+  background: rgba(243, 230, 196, 0.85);         /* 未读状态：米黄底 */
   color: #96710A;
   border: 2rpx solid #B8860B;
 }
 .read-toggle.is-read {
-  background: #B8860B;         /* 已读状态：纸黄棕实底 */
+  background: rgba(184, 134, 11, 0.9);         /* 已读状态：纸黄棕实底 */
   color: #FFFFFF;
   border-color: #B8860B;
 }
@@ -75,7 +70,7 @@
 .section {
   width: 100%;                  /* 固定宽度，与头部卡片完全等宽 */
   box-sizing: border-box;       /* 内边距计入宽度，不撑大盒子 */
-  background: #FFFDF8;
+  background: rgba(255, 253, 248, 0.85);
   border-radius: 24rpx;
   padding: 24rpx;
   margin-bottom: 24rpx;
@@ -124,11 +119,11 @@
   flex-shrink: 0;
 }
 .comment-type.reading {
-  background: #F3E6C4;
+  background: rgba(243, 230, 196, 0.85);
   color: #96710A;
 }
 .comment-type.review {
-  background: #FDEBD0;
+  background: rgba(253, 235, 208, 0.85);
   color: #C77B1E;
 }
 .comment-item-title {

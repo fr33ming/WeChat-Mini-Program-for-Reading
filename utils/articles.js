@@ -13,7 +13,7 @@
 //   2. id 填一个没用过的数字（每篇文章唯一）；
 //   3. type 填 'essay'（随笔）或 'case'（案例）；
 //   4. title 标题、summary 摘要（列表页显示）、author 作者、date 日期；
-//   5. cover 是列表卡片上色块里的字（1~2 个字即可），coverColor 是色块颜色；
+//   5. cover 封面：填本地图片路径（图片放到 images/essays/，写 /images/essays/图片名.png）；
 //   6. content 是正文，按顺序放多个"块"：
 //        { p: '段落文字' }     —— 普通段落
 //        { h: '小标题' }       —— 加粗小标题（可穿插在段落间）
@@ -41,10 +41,9 @@ module.exports = [
     type: 'essay',
     title: '不堕尘泥，傲骨藏心',
     summary: '',
-    author: '叶蓁蓁',
+    author: '叶蓁蓁 · 广州二中',
     date: '2026-06-22',
-    cover: '黛玉',
-    coverColor: '#8E7CC3',
+    cover: '/images/essays/不堕尘泥，傲骨藏心.png',
     content: [
       { q: '主持人语：世人读红楼，多只将林黛玉定义为多愁善感、敏感易碎的悲情女子。可穿过满纸落花泪痕，我们能看见一个宁折不弯、抱香自持的灵魂。她寄身于繁华贾府，周旋于人情世故，却始终不肯向世俗妥协，刻入她骨髓的傲骨，才是她坚守本心的底气。' },
       { p: '读《红楼梦》，多数人记得林黛玉爱哭。但若只看见她的眼泪，便错过了她骨子里最硬的东西。“宁可枝头抱香死，不曾吹落北风中”这句诗用在黛玉身上再合适不过——她不是被风吹落的残花，而是抱守在枝头、宁愿枯萎也不肯飘零的那一朵。《红楼梦》中以芙蓉喻黛玉，我却觉得菊花更贴她的风骨——芙蓉临水，菊花傲霜，她更像那枝头抱香的倔强花朵。' },
@@ -62,10 +61,9 @@ module.exports = [
     type: 'essay',
     title: '繁华落尽聪明累',
     summary: '',
-    author: '邓雨彤',
+    author: '邓雨彤 · 广州二中',
     date: '2026-06-15',
-    cover: '凤姐',
-    coverColor: '#C0392B',
+    cover: '/images/essays/繁华落尽聪明累.png',
     content: [
       { q: '主持人语：“枉费了意悬悬半世心，好一似荡悠悠三更梦。”王熙凤精明能干、手握权柄，却因锋芒过盛，独自扛下内外困境，最终机关算尽，结局悲凉。她的一生印证了慧极必伤、独木难支道理，也提醒着我们，要为人生搭建更多的支点，不为算计裹挟。' },
       { p: '《红楼梦》里的人物，大多不需对琐事抱有太多思绪。黛玉是绛珠仙草，用眼泪偿还仙露；宝玉是神瑛侍者，携通灵宝玉降临人间；不少大观园里的姐姐妹妹，虽有自己的烦恼，但从不为生计发愁。只有王熙凤，活得不纯粹、不轻松，掌管着国公府，接客、孝敬、宴席、家用，样样少不了操心。可以说，她是大观园中受世俗困扰最多的角色。' },
@@ -100,10 +98,9 @@ module.exports = [
     type: 'essay',
     title: '从“我在地坛”到“地坛在我”',
     summary: '',
-    author: '李立原',
+    author: '李立原 · 广州二中',
     date: '2026-01-30',
-    cover: '地坛',
-    coverColor: '#1F8A70',
+    cover: '/images/essays/从“我在地坛”到“地坛在我”.png',
     content: [
       { q: '主持人语：史铁生被命运困在一方轮椅，他望着地坛，却读懂了生命的丰盈。这座寂静的园子成为了他的栖息地，是他叩问生死，思考众生的窗口。他将所受的苦难凝成哲思，地坛从未远去，他存在于每一个敢于直面命运、以顽韧的姿态立足的人的心中。' },
       { p: '史铁生在“最狂妄的年龄”因双腿残疾而陷入绝望，却宿命般地与地坛公园相遇：他受命运摆锤的重击而瘫痪，地坛受历史长河的冲刷而褪色。地坛，先是被他当作感受生命自在舒展的空间，允许他欣赏蜂儿、蚂蚁、瓢虫等小生物的自由生活以及园中四季的变迁；地坛还被他作为观察窗口，让他得以用慈悲之眼端详往来行人的际遇。如是，地坛已从荒芜的园子变成充满生命力和哲思的诗意空间，史铁生找到了生存的意义和希望。地坛也就顺理成章成为了他的“知音”——那个无时无刻不与他共情的“另一个我”。由此，史铁生实现了从“我在地坛”到“地坛在我”。' },
@@ -119,10 +116,9 @@ module.exports = [
     type: 'essay',
     title: '迈向孤独',
     summary: '',
-    author: '陈艺慧',
+    author: '陈艺慧 · 广州二中',
     date: '2025-12-09',
-    cover: '孤独',
-    coverColor: '#34495E',
+    cover: '/images/essays/迈向孤独.png',
     content: [
       { q: '主持人语：七代于宿命的莫比乌斯环中挣扎的人们，一切似乎早已注定，但即便无法逃脱命运的轨迹，他们依然选择热烈地活，在注定被遗忘的时空中，用瞬间的来诠释生命的色彩，与孤独和解，这也是当下的我们所需要经历的。' },
       { p: '爱欲、战争、革命、屠杀；黄色蝴蝶香蕉公司、飞毯与魔药……这里是马孔多，那眼花缭乱、万物瞬息瞬灭的时空。艳阳下香水萦绕，时尚喧嚣；雨季又冲刷一切，洗净血迹与狂欢。这里是布恩迪亚家族，那曾哺育七代的地方。年轻男女错乱相爱，分不清谁是谁的重复名姓。这里是孤独困郁之地，这本书是一部注定毁灭的绝望诗篇。' },
@@ -138,10 +134,9 @@ module.exports = [
     type: 'essay',
     title: '在面向他人中克服认识的缺陷',
     summary: '',
-    author: '谢盺欣',
+    author: '谢盺欣 · 暨南大学',
     date: '2026-09-12',
-    cover: '傲慢',
-    coverColor: '#2980B9',
+    cover: '/images/essays/在面向他人中克服认识的缺陷.png',
     content: [
       { q: '活动简介：在简·奥斯汀的文字里，寻找自己，在自省与理解中走向更好，逐渐蜕变;在喧嚣世界中，忠于内心。本期活动收集了广州二中同学与大学读者的读后感悟，以文会友，在阅读中交流共进。' },
       { q: '主持人语：我们各自都是不同的、独立的个体，在不同成长环境或是经历下塑造出来的我们，独一无二，但可能有着自己没办法注意到的某些“缺陷”，那为何一些人能意识到并改正，一些人却深陷其中呢？他人，是与我们不同的存在，他人的眼光有时会带给我们局促不安，有时候却能带给我们进步：翻开书本，我们看到伊丽莎白与达西，他们两个“不同的存在”相遇时，能够互相书写缺陷，不断成长，探寻着走向更好的自己。' },
@@ -159,10 +154,9 @@ module.exports = [
     type: 'essay',
     title: '谁在傲慢？谁怀偏见？',
     summary: '',
-    author: '吴芷妍',
+    author: '吴芷妍 · 广州二中',
     date: '2026-09-05',
-    cover: '偏见',
-    coverColor: '#D35400',
+    cover: '/images/essays/谁在傲慢？谁怀偏见？.png',
     content: [
       { q: '活动简介：在简·奥斯汀的文字里，寻找自己，在自省与理解中走向更好，逐渐蜕变;在喧嚣世界中，忠于内心。本期活动收集了广州二中同学与大学读者的读后感悟，以文会友，在阅读中交流共进。' },
       { q: '主持人语：你对一部作品的初印象是什么？我们都有自己的阅读口味，有自己偏爱的风格，在想要合上这本少了几分“惊艳”的书时，又是什么留下了你呢？是不局限于“爱情”的方面，是那些由读者与作者共筑的余温，值得我们细细品味，而这些都藏在最初可能被忽略的字句间。' },
@@ -183,145 +177,137 @@ module.exports = [
   {
     id: 7,
     type: 'case',
-    title: '教学案例｜暨南大学文学院学子在广州二中共读干宝《搜神记》',
+    title: '暨南大学文学院学子在广州二中共读干宝《搜神记》',
     summary: '',
     author: '书适圈编辑部',
     date: '2026-06-01',
-    cover: '搜神',
-    coverColor: '#5E35B1',
+    cover: '/images/case/搜神记.png',
     content: [
-      { img: CASE_IMG_PREFIX + 'case1-page-1.webp' },
-      { img: CASE_IMG_PREFIX + 'case1-page-2.webp' },
-      { img: CASE_IMG_PREFIX + 'case1-page-3.webp' },
-      { img: CASE_IMG_PREFIX + 'case1-page-4.webp' },
-      { img: CASE_IMG_PREFIX + 'case1-page-5.webp' }
+      { img: CASE_IMG_PREFIX + 'case1-page-1.jpg' },
+      { img: CASE_IMG_PREFIX + 'case1-page-2.jpg' },
+      { img: CASE_IMG_PREFIX + 'case1-page-3.jpg' },
+      { img: CASE_IMG_PREFIX + 'case1-page-4.jpg' },
+      { img: CASE_IMG_PREFIX + 'case1-page-5.jpg' }
     ]
   },
 
   {
     id: 8,
     type: 'case',
-    title: '教学案例｜品人间烟火 悟岁月食味——暨南文院学子与广州二中学子共读《燕食记》',
+    title: '品人间烟火 悟岁月食味——暨南文院学子与广州二中学子共读《燕食记》',
     summary: '',
     author: '书适圈编辑部',
     date: '2026-06-18',
-    cover: '燕食',
-    coverColor: '#D35400',
+    cover: '/images/case/燕食记.png',
     content: [
-      { img: CASE_IMG_PREFIX + 'case2-page-1.webp' },
-      { img: CASE_IMG_PREFIX + 'case2-page-2.webp' },
-      { img: CASE_IMG_PREFIX + 'case2-page-3.webp' },
-      { img: CASE_IMG_PREFIX + 'case2-page-4.webp' }
+      { img: CASE_IMG_PREFIX + 'case2-page-1.jpg' },
+      { img: CASE_IMG_PREFIX + 'case2-page-2.jpg' },
+      { img: CASE_IMG_PREFIX + 'case2-page-3.jpg' },
+      { img: CASE_IMG_PREFIX + 'case2-page-4.jpg' }
     ]
   },
 
   {
     id: 9,
     type: 'case',
-    title: '教学案例｜谷雨书香润两校，研读经典启新篇',
+    title: '谷雨书香润两校，研读经典启新篇',
     summary: '',
     author: '书适圈编辑部',
     date: '2026-05-05',
-    cover: '谷雨',
-    coverColor: '#27AE60',
+    cover: '/images/case/谷雨书香.png',
     content: [
-      { img: CASE_IMG_PREFIX + 'case3-page-1.webp' },
-      { img: CASE_IMG_PREFIX + 'case3-page-2.webp' },
-      { img: CASE_IMG_PREFIX + 'case3-page-3.webp' },
-      { img: CASE_IMG_PREFIX + 'case3-page-4.webp' },
-      { img: CASE_IMG_PREFIX + 'case3-page-5.webp' },
-      { img: CASE_IMG_PREFIX + 'case3-page-6.webp' },
-      { img: CASE_IMG_PREFIX + 'case3-page-7.webp' }
+      { img: CASE_IMG_PREFIX + 'case3-page-1.jpg' },
+      { img: CASE_IMG_PREFIX + 'case3-page-2.jpg' },
+      { img: CASE_IMG_PREFIX + 'case3-page-3.jpg' },
+      { img: CASE_IMG_PREFIX + 'case3-page-4.jpg' },
+      { img: CASE_IMG_PREFIX + 'case3-page-5.jpg' },
+      { img: CASE_IMG_PREFIX + 'case3-page-6.jpg' },
+      { img: CASE_IMG_PREFIX + 'case3-page-7.jpg' }
     ]
   },
 
   {
     id: 10,
     type: 'case',
-    title: '教学案例｜以文会友通中西 开卷探源悟精神——暨南大学文学院阅读推广志愿服务队走进广州二中共读《中国孤儿》与《赵氏孤儿》',
+    title: '以文会友通中西 开卷探源悟精神——暨南大学文学院阅读推广志愿服务队走进广州二中共读《中国孤儿》与《赵氏孤儿》',
     summary: '',
     author: '书适圈编辑部',
     date: '2026-04-04',
-    cover: '孤儿',
-    coverColor: '#2980B9',
+    cover: '/images/case/孤儿.png',
     content: [
-      { img: CASE_IMG_PREFIX + 'case4-page-1.webp' },
-      { img: CASE_IMG_PREFIX + 'case4-page-2.webp' },
-      { img: CASE_IMG_PREFIX + 'case4-page-3.webp' },
-      { img: CASE_IMG_PREFIX + 'case4-page-4.webp' }
+      { img: CASE_IMG_PREFIX + 'case4-page-1.jpg' },
+      { img: CASE_IMG_PREFIX + 'case4-page-2.jpg' },
+      { img: CASE_IMG_PREFIX + 'case4-page-3.jpg' },
+      { img: CASE_IMG_PREFIX + 'case4-page-4.jpg' }
     ]
   },
 
   {
     id: 11,
     type: 'case',
-    title: '教学案例｜行走人生刀锋 求索精神归途——二中师生与暨大教师共读《刀锋》',
+    title: '行走人生刀锋 求索精神归途——二中师生与暨大教师共读《刀锋》',
     summary: '',
     author: '书适圈编辑部',
     date: '2026-06-22',
-    cover: '刀锋',
-    coverColor: '#7F8C8D',
+    cover: '/images/case/刀锋.png',
     content: [
-      { img: CASE_IMG_PREFIX + 'case5-page-1.webp' },
-      { img: CASE_IMG_PREFIX + 'case5-page-2.webp' },
-      { img: CASE_IMG_PREFIX + 'case5-page-3.webp' },
-      { img: CASE_IMG_PREFIX + 'case5-page-4.webp' },
-      { img: CASE_IMG_PREFIX + 'case5-page-5.webp' },
-      { img: CASE_IMG_PREFIX + 'case5-page-6.webp' }
+      { img: CASE_IMG_PREFIX + 'case5-page-1.jpg' },
+      { img: CASE_IMG_PREFIX + 'case5-page-2.jpg' },
+      { img: CASE_IMG_PREFIX + 'case5-page-3.jpg' },
+      { img: CASE_IMG_PREFIX + 'case5-page-4.jpg' },
+      { img: CASE_IMG_PREFIX + 'case5-page-5.jpg' },
+      { img: CASE_IMG_PREFIX + 'case5-page-6.jpg' }
     ]
   },
 
   {
     id: 12,
     type: 'case',
-    title: '教学案例｜循运河文脉，溯历史光影——记广州二中《北上》主题悦读会活动',
+    title: '循运河文脉，溯历史光影——记广州二中《北上》主题悦读会活动',
     summary: '',
     author: '书适圈编辑部',
     date: '2025-12-30',
-    cover: '北上',
-    coverColor: '#1F618D',
+    cover: '/images/case/北上.png',
     content: [
-      { img: CASE_IMG_PREFIX + 'case6-page-1.webp' },
-      { img: CASE_IMG_PREFIX + 'case6-page-2.webp' },
-      { img: CASE_IMG_PREFIX + 'case6-page-3.webp' },
-      { img: CASE_IMG_PREFIX + 'case6-page-4.webp' }
+      { img: CASE_IMG_PREFIX + 'case6-page-1.jpg' },
+      { img: CASE_IMG_PREFIX + 'case6-page-2.jpg' },
+      { img: CASE_IMG_PREFIX + 'case6-page-3.jpg' },
+      { img: CASE_IMG_PREFIX + 'case6-page-4.jpg' }
     ]
   },
 
   {
     id: 13,
     type: 'case',
-    title: '教学案例｜《百年孤独》悦读会：师生共探布恩迪亚家族的孤独谱系',
+    title: '《百年孤独》悦读会：师生共探布恩迪亚家族的孤独谱系',
     summary: '',
     author: '书适圈编辑部',
     date: '2025-12-09',
-    cover: '百年',
-    coverColor: '#2C3E50',
+    cover: '/images/case/孤独.png',
     content: [
-      { img: CASE_IMG_PREFIX + 'case7-page-1.webp' },
-      { img: CASE_IMG_PREFIX + 'case7-page-2.webp' },
-      { img: CASE_IMG_PREFIX + 'case7-page-3.webp' }
+      { img: CASE_IMG_PREFIX + 'case7-page-1.jpg' },
+      { img: CASE_IMG_PREFIX + 'case7-page-2.jpg' },
+      { img: CASE_IMG_PREFIX + 'case7-page-3.jpg' }
     ]
   },
 
   {
     id: 14,
     type: 'case',
-    title: '教学案例｜三下乡专题：书香润红心，游园承薪火·第三日',
+    title: '三下乡专题：书香润红心，游园承薪火·第三日',
     summary: '',
     author: '书适圈编辑部',
     date: '2026-08-20',
-    cover: '下乡',
-    coverColor: '#C0392B',
+    cover: '/images/case/书香.png',
     content: [
-      { img: CASE_IMG_PREFIX + 'case8-page-1.webp' },
-      { img: CASE_IMG_PREFIX + 'case8-page-2.webp' },
-      { img: CASE_IMG_PREFIX + 'case8-page-3.webp' },
-      { img: CASE_IMG_PREFIX + 'case8-page-4.webp' },
-      { img: CASE_IMG_PREFIX + 'case8-page-5.webp' },
-      { img: CASE_IMG_PREFIX + 'case8-page-6.webp' },
-      { img: CASE_IMG_PREFIX + 'case8-page-7.webp' },
-      { img: CASE_IMG_PREFIX + 'case8-page-8.webp' }
+      { img: CASE_IMG_PREFIX + 'case8-page-1.jpg' },
+      { img: CASE_IMG_PREFIX + 'case8-page-2.jpg' },
+      { img: CASE_IMG_PREFIX + 'case8-page-3.jpg' },
+      { img: CASE_IMG_PREFIX + 'case8-page-4.jpg' },
+      { img: CASE_IMG_PREFIX + 'case8-page-5.jpg' },
+      { img: CASE_IMG_PREFIX + 'case8-page-6.jpg' },
+      { img: CASE_IMG_PREFIX + 'case8-page-7.jpg' },
+      { img: CASE_IMG_PREFIX + 'case8-page-8.jpg' }
     ]
   },
 ]

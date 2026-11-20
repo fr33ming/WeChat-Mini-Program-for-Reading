@@ -1,1 +1,86 @@
 /* pages/lessons/lessons.wxss */
+.container {
+  padding: 24rpx;
+}
+
+/* 只在本页生效的背景图：固定铺满一屏，不随内容滚动拉伸 */
+.page-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;           /* 垫在所有内容下面 */
+  pointer-events: none;  /* 不挡按钮和点击 */
+}
+
+/* ====================== 区块标题（与"发现有趣的功能"同款） ====================== */
+.section-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  margin-bottom: 24rpx;
+}
+
+/* ====================== 视频卡片双列网格 ====================== */
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 一行两个 */
+  column-gap: 16rpx;
+  row-gap: 32rpx;
+}
+
+/* 单张卡片：封面 + 标题 + 作者 */
+.video-card {
+  min-width: 0; /* 防止标题撑破网格列宽 */
+}
+
+/* 封面容器：16:9 比例，角标绝对定位的基准 */
+.cover-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  border-radius: 16rpx;
+  overflow: hidden;
+  background: rgba(240, 232, 216, 0.8);
+}
+
+.video-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 封面右下角时长角标 */
+.cover-badge {
+  position: absolute;
+  bottom: 10rpx;
+  right: 10rpx;
+  font-size: 20rpx;
+  color: #FFFFFF;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 4rpx 10rpx;
+  border-radius: 8rpx;
+  line-height: 1.4;
+}
+
+/* 封面下方标题：最多两行，超出省略 */
+.video-title {
+  font-size: 26rpx;
+  font-weight: bold;
+  color: #4A3B22;
+  line-height: 1.4;
+  margin-top: 12rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+/* 作者信息 */
+.video-meta {
+  font-size: 22rpx;
+  color: #B3A687;
+  margin-top: 8rpx;
+}

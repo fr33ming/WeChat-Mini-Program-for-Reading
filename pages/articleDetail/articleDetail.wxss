@@ -38,7 +38,7 @@
   margin: 40rpx 0 20rpx;      /* 小标题前后留白 */
 }
 .block-q {
-  background: #F7F1E2;
+  background: rgba(247, 241, 226, 0.85);
   border-left: 8rpx solid #B8860B; /* 左侧主题色竖线 */
   padding: 20rpx 24rpx;
   margin: 32rpx 0;

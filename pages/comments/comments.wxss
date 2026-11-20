@@ -20,7 +20,7 @@
 }
 
 .comment-card {
-  background: #FFFDF8;
+  background: rgba(255, 253, 248, 0.85);
   border-radius: 16rpx;
   padding: 24rpx;
   margin: 0 24rpx 20rpx;
@@ -39,11 +39,11 @@
   flex-shrink: 0;
 }
 .comment-type.reading {
-  background: #F3E6C4;
+  background: rgba(243, 230, 196, 0.85);
   color: #96710A;
 }
 .comment-type.review {
-  background: #FDEBD0;
+  background: rgba(253, 235, 208, 0.85);
   color: #C77B1E;
 }
 .comment-card-title {
@@ -83,7 +83,7 @@
 
 /* ====================== 空状态 ====================== */
 .empty-state {
-  background: #FFFDF8;
+  background: rgba(255, 253, 248, 0.85);
   border-radius: 16rpx;
   padding: 60rpx 20rpx;
   margin: 0 24rpx 20rpx;

@@ -3,11 +3,22 @@
   padding: 24rpx;
 }
 
+/* 只在本页生效的背景图：固定铺满一屏，不随内容滚动拉伸 */
+.page-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;           /* 垫在所有内容下面 */
+  pointer-events: none;  /* 不挡按钮和点击 */
+}
+
 /* ====================== 个人信息头部卡片 ====================== */
 .profile-header {
   display: flex;                /* 横向布局：头像+个人信息 */
   align-items: center;
-  background: #B8860B;          /* 纸黄棕主题色 */
+  background: rgba(184, 134, 11, 0.9); /* 纸黄棕主题色（半透明，透出背景图） */
   border-radius: 24rpx;
   padding: 30rpx;
   color: white;
@@ -59,14 +70,14 @@
   padding: 16rpx;
   text-align: center;
   border-radius: 40rpx;
-  background: #FFFDF8;
+  background: rgba(255, 253, 248, 0.75);
   color: #8A7A5C;
   font-size: 24rpx;
   font-weight: 600;
   border: 2rpx solid #E7D9B8;
 }
 .mine-tab.active {
-  background: #B8860B;         /* 选中tab主题色背景 */
+  background: rgba(184, 134, 11, 0.9); /* 选中tab主题色背景（半透明） */
   color: white;
   border-color: #B8860B;
 }
@@ -82,12 +93,12 @@
   border-radius: 32rpx;
   font-size: 24rpx;
   font-weight: 600;
-  background: #F0E6CE;
+  background: rgba(240, 230, 206, 0.8);
   color: #8A7A5C;
   border: 2rpx solid #E7D9B8;
 }
 .type-filter-btn.active {
-  background: #B8860B;
+  background: rgba(184, 134, 11, 0.9);
   color: white;
   border-color: #B8860B;
 }
@@ -96,7 +107,7 @@
 .read-item, .comment-item {
   display: flex;
   flex-direction: column;
-  background: #FFFDF8;
+  background: rgba(255, 253, 248, 0.85); /* 半透明卡片，透出背景图 */
   border-radius: 16rpx;
   padding: 20rpx;
   margin-bottom: 16rpx;
@@ -110,13 +121,8 @@
   width: 80rpx;
   height: 110rpx;
   border-radius: 8rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28rpx;
-  font-weight: bold;
-  color: white;
   flex-shrink: 0;              /* 封面禁止压缩变形 */
+  background: rgba(243, 230, 196, 0.85);         /* 图片加载前的底色 */
 }
 .info {
   margin-left: 16rpx;
@@ -154,11 +160,11 @@
   flex-shrink: 0;
 }
 .comment-type.reading {
-  background: #F3E6C4;
+  background: rgba(243, 230, 196, 0.85);
   color: #96710A;
 }
 .comment-type.review {
-  background: #FDEBD0;
+  background: rgba(253, 235, 208, 0.85);
   color: #C77B1E;
 }
 .comment-title {
@@ -174,7 +180,7 @@
 
 /* ====================== 空状态 ====================== */
 .empty-state {
-  background: #FFFDF8;
+  background: rgba(255, 253, 248, 0.85);
   border-radius: 16rpx;
   padding: 60rpx 20rpx;
   text-align: center;

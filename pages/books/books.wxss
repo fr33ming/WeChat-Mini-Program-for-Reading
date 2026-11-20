@@ -13,7 +13,7 @@
 .search-bar {
   display: flex;
   padding: 8rpx 24rpx 16rpx;
-  background: #F8F1E1;
+  background: rgba(248, 241, 225, 0.8);
   position: sticky;
   top: 0;
   z-index: 10;
@@ -22,7 +22,7 @@
   flex: 1;
   height: 72rpx;
   border-radius: 36rpx;
-  background: #FFFDF8;
+  background: rgba(255, 253, 248, 0.85);
   border: 2rpx solid #E7D9B8;
   padding: 0 32rpx;
   font-size: 28rpx;
@@ -39,14 +39,14 @@
   padding: 14rpx 0;
   text-align: center;
   border-radius: 36rpx;
-  background: #FFFDF8;
+  background: rgba(255, 253, 248, 0.85);
   color: #8A7A5C;
   font-size: 26rpx;
   font-weight: 600;
   border: 2rpx solid #E7D9B8;
 }
 .filter-btn.active {
-  background: #B8860B;         /* 选中的按钮用主题色 */
+  background: rgba(184, 134, 11, 0.9);         /* 选中的按钮用主题色 */
   color: white;
   border-color: #B8860B;
 }
@@ -64,13 +64,13 @@
 .grade-btn {
   padding: 10rpx 24rpx;
   border-radius: 28rpx;
-  background: #FFFDF8;
+  background: rgba(255, 253, 248, 0.85);
   color: #8A7A5C;
   font-size: 24rpx;
   border: 2rpx solid #E7D9B8;
 }
 .grade-btn.active {
-  background: #F3E6C4;         /* 选中的年级用浅米黄底 */
+  background: rgba(243, 230, 196, 0.85);         /* 选中的年级用浅米黄底 */
   color: #96710A;
   border-color: #B8860B;
 }
@@ -83,7 +83,7 @@
 /* ====================== 单条书籍卡片 ====================== */
 .book-card {
   display: flex;
-  background: #FFFDF8;
+  background: rgba(255, 253, 248, 0.85);
   border-radius: 16rpx;
   padding: 20rpx;
   margin: 0 24rpx 20rpx;
@@ -93,13 +93,8 @@
   width: 140rpx;
   height: 190rpx;
   border-radius: 12rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 36rpx;
-  font-weight: bold;
-  color: white;
   flex-shrink: 0;
+  background: rgba(243, 230, 196, 0.85); /* 图片加载前的底色 */
 }
 .book-info {
   flex: 1;
@@ -149,7 +144,7 @@
 
 /* ====================== 空状态 ====================== */
 .empty-state {
-  background: #FFFDF8;
+  background: rgba(255, 253, 248, 0.85);
   border-radius: 16rpx;
   padding: 60rpx 20rpx;
   margin: 0 24rpx 20rpx;

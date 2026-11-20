@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/bookSet/bookSet",
     "pages/books/books",
     "pages/bookDetail/bookDetail",
     "pages/comments/comments",
@@ -7,6 +8,7 @@
     "pages/commentDetail/commentDetail",
     "pages/fun/fun",
     "pages/feedback/feedback",
+    "pages/survey/survey",
     "pages/lessons/lessons",
     "pages/articles/articles",
     "pages/articleDetail/articleDetail",
@@ -24,7 +26,7 @@
     "selectedColor": "#B8860B",
     "list":[
       {
-        "pagePath": "pages/books/books",
+        "pagePath": "pages/bookSet/bookSet",
         "text":"墨趣同栖",
         "iconPath": "images/tabBar/books_.png",
         "selectedIconPath": "images/tabBar/books.png"

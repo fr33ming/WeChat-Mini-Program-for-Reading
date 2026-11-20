@@ -5,7 +5,7 @@
 
 /* ====================== 评论正文卡片 ====================== */
 .comment-card {
-  background: #FFFDF8;
+  background: rgba(255, 253, 248, 0.85);
   border-radius: 24rpx;
   padding: 32rpx 24rpx;
   margin-bottom: 24rpx;
@@ -24,11 +24,11 @@
   flex-shrink: 0;
 }
 .comment-type.reading {
-  background: #F3E6C4;
+  background: rgba(243, 230, 196, 0.85);
   color: #96710A;
 }
 .comment-type.review {
-  background: #FDEBD0;
+  background: rgba(253, 235, 208, 0.85);
   color: #C77B1E;
 }
 .comment-title {
@@ -65,21 +65,21 @@
   text-align: center;
   padding: 16rpx;
   border-radius: 40rpx;
-  background: #F8F1E1;
+  background: rgba(248, 241, 225, 0.8);
   color: #8A7A5C;
   font-size: 26rpx;
   font-weight: 600;
   border: 2rpx solid #E7D9B8;
 }
 .action-btn.active {
-  background: #FDEBD0;
+  background: rgba(253, 235, 208, 0.85);
   color: #C77B1E;
   border-color: #C77B1E;
 }
 
 /* ====================== 评论区 ====================== */
 .section {
-  background: #FFFDF8;
+  background: rgba(255, 253, 248, 0.85);
   border-radius: 24rpx;
   padding: 24rpx;
   box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.05);
@@ -98,7 +98,7 @@
 .comment-input {
   flex: 1;
   height: 72rpx;
-  background: #F8F1E1;
+  background: rgba(248, 241, 225, 0.8);
   border: 2rpx solid #E7D9B8;
   border-radius: 36rpx;
   padding: 0 28rpx;
@@ -107,13 +107,13 @@
 .send-btn {
   padding: 14rpx 32rpx;
   border-radius: 36rpx;
-  background: #B8860B;
+  background: rgba(184, 134, 11, 0.9);
   color: white;
   font-size: 26rpx;
   font-weight: 600;
 }
 .send-btn:active {
-  background: #96710A;
+  background: rgba(150, 113, 10, 0.9);
 }
 
 .comment-item {

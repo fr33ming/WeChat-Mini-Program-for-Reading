@@ -3,8 +3,7 @@
   "libVersion": "trial",
   "packOptions": {
     "ignore": [
-      { "type": "folder", "value": "参考资料" },
-      { "type": "folder", "value": "images/cases_pdf" }
+      { "type": "folder", "value": "参考资料" }
     ],
     "include": []
   },

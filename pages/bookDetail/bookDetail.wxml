@@ -1,7 +1,7 @@
 <view class="container">
   <!-- 头部 -->
   <view class="hero">
-    <view class="cover" style="background: {{book.coverColor}}">{{book.cover}}</view>
+    <image class="cover" src="{{book.cover}}" mode="aspectFill" />
     <view class="info">
       <view class="title">{{book.title}}</view>
       <view class="author">{{book.author}}</view>

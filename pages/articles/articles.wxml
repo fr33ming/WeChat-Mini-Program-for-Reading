@@ -1,8 +1,17 @@
 <view class="container">
-  <!-- 板块切换：随笔 / 案例 -->
+  <!-- 背景图片 -->
+  <image class="page-bg" src="/images/background.jpg" mode="aspectFill" />
+
+  <!-- 板块切换：随笔 / 案例（图片入口，图上嵌入文字框） -->
   <view class="tab-row">
-    <view class="mine-tab {{activeTab === 'essay' ? 'active' : ''}}" bindtap="switchTab" data-tab="essay">🖋 随笔</view>
-    <view class="mine-tab {{activeTab === 'case' ? 'active' : ''}}" bindtap="switchTab" data-tab="case">📰 案例</view>
+    <view class="tab-item {{activeTab === 'essay' ? 'tab-img-active' : ''}}" bindtap="switchTab" data-tab="essay">
+      <image class="tab-img" src="/images/articles/随笔.png" mode="aspectFill" />
+      <view class="tab-label">✏️随笔</view>
+    </view>
+    <view class="tab-item {{activeTab === 'case' ? 'tab-img-active' : ''}}" bindtap="switchTab" data-tab="case">
+      <image class="tab-img" src="/images/articles/案例.jpg" mode="aspectFill" />
+      <view class="tab-label">📰案例</view>
+    </view>
   </view>
 
   <!-- 推文列表（公众号推文卡片形式） -->
@@ -11,7 +20,7 @@
     <view>这个板块还没有内容，敬请期待</view>
   </view>
   <view class="article-card" wx:for="{{showList}}" wx:key="id" bindtap="goDetail" data-id="{{item.id}}">
-    <view class="article-cover" style="background: {{item.coverColor}}">{{item.cover}}</view>
+    <image class="article-cover-img" src="{{item.cover}}" mode="aspectFill" />
     <view class="article-info">
       <view class="article-title">{{item.title}}</view>
       <view class="article-summary">{{item.summary}}</view>

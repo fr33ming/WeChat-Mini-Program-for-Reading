@@ -1,0 +1,72 @@
+/* ====================== 页面容器 ====================== */
+.container {
+  padding: 24rpx;
+}
+
+/* ====================== 问卷标题 ====================== */
+.survey-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #4A3B22;
+  margin: 8rpx 4rpx 24rpx;
+}
+
+/* ====================== 表单卡片 ====================== */
+.form-card {
+  background: rgba(255, 253, 248, 0.85);
+  border-radius: 24rpx;
+  padding: 32rpx 24rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.05);
+}
+
+/* 单个题目 */
+.question {
+  margin-bottom: 32rpx;
+}
+.question-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #4A3B22;
+  margin-bottom: 16rpx;
+}
+
+/* 选项行 */
+.option {
+  display: flex;
+  align-items: center;
+  padding: 18rpx 20rpx;
+  margin-bottom: 12rpx;
+  background: rgba(248, 241, 225, 0.8);
+  border: 2rpx solid #E7D9B8;
+  border-radius: 12rpx;
+}
+.option-active {
+  background: rgba(253, 243, 220, 0.85);
+  border-color: #B8860B;
+}
+.option-dot {
+  font-size: 28rpx;
+  color: #B8860B;
+  margin-right: 16rpx;
+}
+.option-text {
+  font-size: 26rpx;
+  color: #4A3B22;
+}
+
+.form-tip {
+  font-size: 22rpx;
+  color: #B3A687;
+  margin: 16rpx 0 24rpx;
+}
+.submit-btn {
+  width: 100%;
+  background: rgba(184, 134, 11, 0.9);
+  color: white;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+.submit-btn:active {
+  background: rgba(150, 113, 10, 0.9);
+}

@@ -1,4 +1,7 @@
 <view class="container">
+  <!-- 背景图片 -->
+  <image class="page-bg" src="/images/background.jpg" mode="aspectFill" />
+  
   <!-- 个人信息 -->
   <view class="profile-header">
     <view class="avatar">📚</view>
@@ -26,7 +29,7 @@
     <view>还没有已读书籍，去书籍推荐看看吧！</view>
   </view>
   <view class="read-item" wx:for="{{readBooks}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
-    <view class="book-cover" style="background: {{item.coverColor}}">{{item.cover}}</view>
+    <image class="book-cover" src="{{item.cover}}" mode="aspectFill" />
     <view class="info">
       <view class="title">{{item.title}}</view>
       <view class="subtitle">{{item.author}} · {{item.category}}</view>
@@ -56,7 +59,7 @@
     <view class="type-filter">
       <view class="type-filter-btn {{favFilter === 'comment' ? 'active' : ''}}" data-filter="comment" bindtap="onFavFilter">✍️ 评论</view>
       <view class="type-filter-btn {{favFilter === 'case' ? 'active' : ''}}" data-filter="case" bindtap="onFavFilter">📰 案例</view>
-      <view class="type-filter-btn {{favFilter === 'essay' ? 'active' : ''}}" data-filter="essay" bindtap="onFavFilter">🖋 随笔</view>
+      <view class="type-filter-btn {{favFilter === 'essay' ? 'active' : ''}}" data-filter="essay" bindtap="onFavFilter">✏️ 随笔</view>
     </view>
     <view wx:if="{{favShow.length === 0}}" class="empty-state">
       <view class="empty-icon">☆</view>
@@ -80,7 +83,7 @@
     <view class="type-filter">
       <view class="type-filter-btn {{likeFilter === 'comment' ? 'active' : ''}}" data-filter="comment" bindtap="onLikeFilter">✍️ 评论</view>
       <view class="type-filter-btn {{likeFilter === 'case' ? 'active' : ''}}" data-filter="case" bindtap="onLikeFilter">📰 案例</view>
-      <view class="type-filter-btn {{likeFilter === 'essay' ? 'active' : ''}}" data-filter="essay" bindtap="onLikeFilter">🖋 随笔</view>
+      <view class="type-filter-btn {{likeFilter === 'essay' ? 'active' : ''}}" data-filter="essay" bindtap="onLikeFilter">✏️ 随笔</view>
     </view>
     <view wx:if="{{likeShow.length === 0}}" class="empty-state">
       <view class="empty-icon">♥</view>

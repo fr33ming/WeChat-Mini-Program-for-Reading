@@ -1,16 +1,16 @@
 <view class="container">
+  <!-- 背景图片 -->
+  <image class="page-bg" src="/images/background.jpg" mode="aspectFill" />
+
   <view class="section-title">🎯 发现有趣的功能</view>
 
   <!-- 阅读测试：三张海报，可左右循环滑动，中间大两侧小 -->
   <view class="quiz-section">
-    <swiper class="quiz-swiper" circular previous-margin="70rpx" next-margin="70rpx" bindchange="onSwiperChange">
+    <swiper class="quiz-swiper" circular previous-margin="180rpx" next-margin="180rpx" bindchange="onSwiperChange">
       <swiper-item wx:for="{{quizzes}}" wx:key="id">
-        <view class="quiz-poster {{index === currentIndex ? 'quiz-poster-active' : ''}}" style="background: {{item.color}}" bindtap="comingSoon">
-          <view class="quiz-poster-top">
-            <text class="quiz-poster-emoji">{{item.emoji}}</text>
-            <text class="quiz-poster-name">{{item.name}}</text>
-          </view>
-          <view class="quiz-poster-bottom">
+        <view class="quiz-item {{index === currentIndex ? 'quiz-item-active' : ''}}" bindtap="comingSoon">
+          <image class="quiz-poster-img" src="{{item.cover}}" mode="widthFix" />
+          <view class="quiz-score-box">
             <text class="quiz-score">科学性 {{item.science}}</text>
             <text class="quiz-score">娱乐性 {{item.entertainment}}</text>
           </view>
@@ -21,7 +21,7 @@
 
   <view class="fun-grid">
     <view class="fun-card" bindtap="goToComment">
-      <text class="fun-icon">🎲</text>
+      <text class="fun-icon">✍️</text>
       <text class="fun-name">评论广场</text>
       <text class="fun-desc">看看大家写了什么</text>
     </view>
@@ -32,5 +32,16 @@
       <text class="fun-desc">期待你的意见</text>
     </view>
 
+  </view>
+
+  <!-- 活动调查：问卷入口 -->
+  <view class="survey-section">
+    <view class="section-title">📋 活动调查</view>
+    <view class="survey-list">
+      <view class="survey-item" wx:for="{{surveys}}" wx:key="name" bindtap="goToSurvey" data-name="{{item.name}}">
+        <text class="survey-name">{{item.name}}</text>
+        <text class="survey-arrow">›</text>
+      </view>
+    </view>
   </view>
 </view>

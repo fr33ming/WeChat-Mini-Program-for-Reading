@@ -3,6 +3,17 @@
   padding: 24rpx;
 }
 
+/* 只在本页生效的背景图：固定铺满一屏，不随内容滚动拉伸 */
+.page-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;           /* 垫在所有内容下面 */
+  pointer-events: none;  /* 不挡按钮和点击 */
+}
+
 /* ====================== 区块标题 ====================== */
 .section-title {
   font-size: 34rpx;
@@ -17,60 +28,52 @@
 
 /* 海报轮播：左右循环滑动 */
 .quiz-swiper {
-  height: 400rpx;
+  height: 490rpx;
 }
 
-/* 单张海报（非当前项：缩小半透明，露出左右两侧提示可滑动） */
-.quiz-poster {
+/* 单张海报容器（非当前项：缩小露出左右两侧提示可滑动，海报本身不透明） */
+.quiz-item {
   height: 100%;
-  border-radius: 24rpx;
-  padding: 40rpx 30rpx;
-  box-sizing: border-box;
-  color: #FFFFFF;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 6rpx 16rpx rgba(0,0,0,0.15);
+  align-items: center;
+  justify-content: center;
   transform: scale(0.9);
-  opacity: 0.55;
-  transition: transform 0.3s, opacity 0.3s;
+  opacity: 1;
+  transition: transform 0.3s;
 }
 
 /* 当前居中的海报：放大全彩 */
-.quiz-poster-active {
+.quiz-item-active {
   transform: scale(1);
   opacity: 1;
 }
 
-/* 海报上半部分：图标 + 测试名 */
-.quiz-poster-top {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* 测试海报图：按原图比例显示，不裁剪 */
+.quiz-poster-img {
+  width: 300rpx;
+  border-radius: 12rpx;
+  flex-shrink: 0;
+  background: rgba(240, 232, 216, 0.8);
 }
 
-.quiz-poster-emoji {
-  font-size: 100rpx;
-}
-
-.quiz-poster-name {
-  font-size: 38rpx;
-  font-weight: bold;
-  margin-top: 20rpx;
-  letter-spacing: 4rpx;
-}
-
-/* 海报内部底部：评分 */
-.quiz-poster-bottom {
+/* 海报下方星级方框 */
+.quiz-score-box {
+  margin-top: 10rpx;
+  background: rgba(255, 253, 248, 0.85);
+  border: 2rpx solid #E7D9B8;
+  border-radius: 10rpx;
+  padding: 4rpx 20rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .quiz-score {
-  font-size: 28rpx;
-  line-height: 1.8;
+  font-size: 22rpx;
+  line-height: 1.5;
   letter-spacing: 2rpx;
+  color: #4A3B22;
 }
 
 /* ====================== 功能网格布局 ====================== */
@@ -82,7 +85,7 @@
 
 /* ====================== 普通功能卡片 ====================== */
 .fun-card {
-  background: #FFFDF8;
+  background: rgba(255, 253, 248, 0.85);
   border-radius: 20rpx;
   padding: 30rpx 20rpx;
   text-align: center;
@@ -111,4 +114,39 @@
 .fun-desc {
   font-size: 24rpx;
   opacity: 0.8; /* 描述文字降低透明度弱化 */
+}
+
+/* ====================== 活动调查：问卷入口 ====================== */
+.survey-section {
+  margin-top: 40rpx;
+}
+
+/* 问卷入口列表 */
+.survey-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+/* 单个问卷入口行 */
+.survey-item {
+  background: rgba(255, 253, 248, 0.85);
+  border-radius: 20rpx;
+  padding: 30rpx 24rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.survey-name {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #4A3B22;
+}
+
+.survey-arrow {
+  font-size: 44rpx;
+  line-height: 1;
+  color: #B8860B;
 }

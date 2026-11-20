@@ -26,7 +26,7 @@
       <view>没有找到相关书籍</view>
     </view>
     <view class="book-card" wx:for="{{filteredBooks}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
-      <view class="book-cover" style="background: {{item.coverColor}}">{{item.cover}}</view>
+      <image class="book-cover" src="{{item.cover}}" mode="aspectFill" />
       <view class="book-info">
         <view class="book-title">{{item.title}}</view>
         <view class="book-author">{{item.author}}</view>
@@ -42,7 +42,7 @@
   <!-- 全部：所有图书平铺罗列（无栏目标题） -->
   <block wx:elif="{{filterShelf === 'all'}}">
     <view class="book-card" wx:for="{{books}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
-      <view class="book-cover" style="background: {{item.coverColor}}">{{item.cover}}</view>
+      <image class="book-cover" src="{{item.cover}}" mode="aspectFill" />
       <view class="book-info">
         <view class="book-title">{{item.title}}</view>
         <view class="book-author">{{item.author}}</view>
@@ -65,7 +65,7 @@
       <view>这个分类下暂时还没有书</view>
     </view>
     <view class="book-card" wx:for="{{shelfBooks}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
-      <view class="book-cover" style="background: {{item.coverColor}}">{{item.cover}}</view>
+      <image class="book-cover" src="{{item.cover}}" mode="aspectFill" />
       <view class="book-info">
         <view class="book-title">{{item.title}}</view>
         <view class="book-author">{{item.author}}</view>

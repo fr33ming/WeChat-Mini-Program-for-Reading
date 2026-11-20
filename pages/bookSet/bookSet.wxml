@@ -1,0 +1,21 @@
+<view class="container">
+  <!-- 首页海报 -->
+  <image class="poster" src="/images/poster.png" mode="widthFix" />
+  
+  <!-- 背景图片 -->
+  <image class="page-bg" src="/images/background.jpg" mode="aspectFill" />
+
+  <!-- 书单区 -->
+  <view class="book-card" wx:for="{{books}}" wx:key="id" bindtap="goToDetail" data-id="{{item.id}}">
+    <image class="book-cover" src="{{item.cover}}" mode="aspectFill" />
+    <view class="book-info">
+      <view class="book-title">{{item.title}}</view>
+      <view class="book-author">{{item.author}}</view>
+      <view class="book-desc">{{item.guide}}</view>
+      <view class="book-meta">
+        <text wx:for="{{item.tags}}" wx:for-item="tag" wx:key="*this" class="badge badge-primary">{{tag}}</text>
+        <text wx:if="{{item.isRead}}" class="badge badge-success">✓ 已读</text>
+      </view>
+    </view>
+  </view>
+</view>

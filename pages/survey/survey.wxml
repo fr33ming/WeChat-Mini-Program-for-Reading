@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="survey-title">{{surveyTitle}}</view>
+
+  <view class="form-card">
+    <view class="question" wx:for="{{questions}}" wx:key="id">
+      <view class="question-title">{{index + 1}}. {{item.title}}</view>
+      <view class="option {{item.selected === optIndex ? 'option-active' : ''}}"
+            wx:for="{{item.options}}" wx:for-item="opt" wx:for-index="optIndex" wx:key="*this"
+            bindtap="onSelect" data-qid="{{item.id}}" data-idx="{{optIndex}}">
+        <text class="option-dot">{{item.selected === optIndex ? '●' : '○'}}</text>
+        <text class="option-text">{{opt}}</text>
+      </view>
+    </view>
+
+    <view class="form-tip">问卷结果仅用于活动改进，感谢你的参与！</view>
+    <button class="btn submit-btn" bindtap="submit">提交问卷</button>
+  </view>
+</view>

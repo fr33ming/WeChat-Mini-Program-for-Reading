@@ -9,7 +9,7 @@ page {
 
 /* ====================== 卡片模块 .card ====================== */
 .card {
-  background: #FFFDF8;          /* 卡片暖白底 */
+  background: rgba(255, 253, 248, 0.85);          /* 卡片暖白底 */
   border-radius: 16rpx;        /* 圆角 */
   padding: 24rpx;              /* 卡片内边距 */
   margin: 20rpx 24rpx;         /* 卡片外边距：上下20rpx，左右24rpx */
@@ -31,18 +31,18 @@ page {
   font-size: 28rpx;
   font-weight: 600;
   text-align: center;
-  background: #B8860B;          /* 主色：纸黄棕 */
+  background: rgba(184, 134, 11, 0.9);          /* 主色：纸黄棕 */
   color: white;
   border: none;
 }
 /* 按钮点击激活态 */
 .btn:active {
-  background: #96710A;          /* 点击时颜色加深 */
+  background: rgba(150, 113, 10, 0.9);          /* 点击时颜色加深 */
   transform: scale(0.96);       /* 按下轻微缩小，按压反馈 */
 }
 /* 成功按钮变体 */
 .btn-success {
-  background: #B8860B;          /* 主色 */
+  background: rgba(184, 134, 11, 0.9);          /* 主色 */
 }
 /* 边框按钮（镂空） */
 .btn-outline {
@@ -76,6 +76,6 @@ page {
   font-size: 22rpx;
   font-weight: 600;
 }
-.badge-primary { background: #F3E6C4; color: #96710A; }   /* 主色徽章：米黄底纸黄棕字 */
-.badge-success { background: #F0E3BE; color: #7A5C1E; }   /* 已读徽章：浅米底深棕字 */
-.badge-warning { background: #FDEBD0; color: #C77B1E; }  /* 警示徽章：浅杏底橙字 */
+.badge-primary { background: rgba(243, 230, 196, 0.85); color: rgba(150, 113, 10, 0.9); }   /* 主色徽章：米黄底纸黄棕字 */
+.badge-success { background: rgba(240, 227, 190, 0.85); color: #7A5C1E; }   /* 已读徽章：浅米底深棕字 */
+.badge-warning { background: rgba(253, 235, 208, 0.85); color: #C77B1E; }  /* 警示徽章：浅杏底橙字 */

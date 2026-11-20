@@ -1,2 +1,18 @@
-<!--pages/lessons/lessons.wxml-->
-<text>pages/lessons/lessons.wxml</text>
+<!-- pages/lessons/lessons.wxml：B站首页视频样式，一行两个，纯图片预览 -->
+<view class="container">
+  <!-- 背景图片 -->
+  <image class="page-bg" src="/images/background.jpg" mode="aspectFill" />
+
+  <view class="section-title">🤖 AI微课</view>
+
+  <view class="video-grid">
+    <view class="video-card" wx:for="{{lessons}}" wx:key="id">
+      <view class="cover-wrap">
+        <image class="video-cover" src="{{item.cover}}" mode="aspectFill" lazy-load />
+        <view class="cover-badge duration">{{item.duration}}</view>
+      </view>
+      <view class="video-title">{{item.title}}</view>
+      <view class="video-meta">{{item.author}}</view>
+    </view>
+  </view>
+</view>
